@@ -1,16 +1,26 @@
 # Epitaph
 
-## Saves
+Epitaph is a bookkeeping application for [Geist: The Sin-Eaters Second Edition](https://www.kickstarter.com/projects/200664283/geist-the-sin-eaters-2nd-edition).
+
+It can be used to track Haunt Conditions, including charges and enhancements, or as a quick reference for Haunts.
+
+The application can be found at https://primalzed.github.io/epitaph.
+
+## TODO
+
+Planned or considered features for future updates.
+
+### Saves
 
 export / import file saves
 
-## Architecture
+### Architecture
 
-Separate router outlet for navbar title, action button
+Separate router outlet for action button
 
-## Conditions
+### Conditions
 
-### Add a Condition
+#### Add a Condition
 
 (?) Choose source character
 
@@ -18,19 +28,15 @@ How to represent charges?  Dots?
 
 (?) notice of Condition ending without resolving if charges are spent
 
-## Add Effects
+### Add Effects
 
 (Add custom Effect; option to save for later)
 
-### Transform Condition
-
-Marionette can turn into a Servant
-
-## P2P
+### P2P
 
 Host device propagates data to connected devices.
 
-## Characters
+### Characters
 
 ```typescript
 export interface Character {
@@ -50,6 +56,6 @@ export interface Character {
 
 Track **Doomed** conditons?
 
-## House Rules
+### House Rules
 
 Review / clear house-rule effects added to Haunts
