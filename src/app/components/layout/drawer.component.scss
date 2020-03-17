@@ -1,0 +1,27 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+.drawer-backdrop {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index: $zindex-modal-backdrop;
+}
+
+
+.drawer {
+  position: fixed;
+  top: 4rem;
+  bottom: 0;
+  background-color: #fff;
+  z-index: $zindex-modal;
+  overflow-y: auto;
+
+  > .dropdown-menu {
+    position: static;
+    display: block;
+  }
+}

@@ -1,0 +1,6 @@
+<div class="list-group">
+  <button *ngFor="let option of options$ | async" class="list-group-item list-group-item-action"
+    type="button" matRipple (click)="select(option)">
+    {{ option.name }}
+  </button>
+</div>

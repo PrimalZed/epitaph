@@ -1,0 +1,10 @@
+<table class="text-primary">
+  <tr *ngFor="let row of table; first as first">
+    <ng-container *ngIf="first">
+      <th *ngFor="let cell of row">{{ cell }}</th>
+    </ng-container>
+    <ng-container *ngIf="!first">
+      <td *ngFor="let cell of row">{{ cell }}</td>
+    </ng-container>
+  </tr>
+</table>

@@ -1,0 +1,15 @@
+<nav class="navbar navbar-dark bg-primary fixed-top">
+  <button class="btn btn-primary rounded-pill mr-3" type="button" matRipple (click)="showDrawer = !showDrawer">
+    <fa-icon [icon]="['fas', 'bars']" size="lg"></fa-icon>
+  </button>
+  <div class="navbar-brand mr-auto">{{ (headerName$ | async) || "Epitaph" | titlecase }}</div>
+  <button *ngIf="dirty$ | async" class="btn btn-primary rounded-pill" matRipple (click)="save()">
+    <fa-icon [icon]="['fas', 'save']" size="lg"></fa-icon>
+  </button>
+</nav>
+<div style="position: absolute; top: 4rem; bottom: 0; left: 0; right: 0;">
+  <drawer *ngIf="showDrawer" (close)="showDrawer = false"></drawer>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

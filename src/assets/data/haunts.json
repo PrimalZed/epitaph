@@ -1,0 +1,1048 @@
+[
+  {
+    "key": "boneyard",
+    "name": "Boneyard",
+    "conditions": ["boneyard"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Raise the Boneyard",
+      "type": "action",
+      "action": { 
+        "table": [
+          ["Plasm Spent", "Area"],
+          ["1", "Several rooms, or a single floor of a house"],
+          ["2", "A ballroom or small house"],
+          ["3", "A large house or building"]
+        ],
+        "type": "contested",
+        "time": "instant",
+        "pool": ["Synergy", "Boneyard"],
+        "contested": ["Synergy", "Boneyard"],
+        "cost": { "min": 1, "max": 3 },
+        "success": "The area becomes infused with the Sin-Eater’s consciousness per point of Plasm spent, giving it the Boneyard Environmental Tilt.  While the Boneyard exists the Sin-Eater may roll Synergy + Boneyard contested by Composure + Synergy to impose the Guilty, Shaken, or Spooked condition on a target within the Boneyard.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Raise the Boneyard.",
+        "failure": "The Sin-Eater fails to establish their domain.",
+        "dramatic": "The Sin-Eater invests too much of themselves within the Boneyard and binds themselves to it.  They gain the Lost Condition (p. 301) for the rest of the chapter whenever navigating anywhere but back to the place they tried to create the Boneyard."
+      }
+    }, { 
+      "dots": 2,
+      "name": "Eyes in the Paintings",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 1,
+        "description": "The Sin-Eater transfers her perception to any location within the Boneyard, seeing, hearing, smelling, and tasting as though she were physically present.  Returning her perceptions to her body does not cost Plasm.  This Enhancement may be applied more than once.",
+        "type": "instant"
+      }]
+    }, {
+      "dots": 3,
+      "name": "No Escape",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "upgrade",
+        "action": {
+          "cost": { "min": 1, "max": 5 },
+          "table": [
+            ["Plasm Spent", "Area"],
+            ["1", "A small warehouse or parking lot"],
+            ["2", "A large warehouse or super-market"],
+            ["3", "A small factory or shopping mall"],
+            ["4", "A large factory or city block"],
+            ["5", "A university campus, small town, or city neighborhood"]
+          ]
+        }
+      }, {
+        "key": "3-2",
+        "cost": { "min": 1, "max": 5 },
+        "type": "persistent",
+        "description": "Any attempt to leave the area of the Boneyard suffers a penalty equal to Plasm spent, and any attempt, no matter how seemingly trivial, requires an action."
+      }]
+    }, {
+      "dots": 4,
+      "name": "Earthquake Weather",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": 3,
+        "type": "instant",
+        "description": "Create an Environmental Tilt in the Boneyard with Severity equal to the Bound’s dots in Boneyard. Choose from the following: Blizzard, Extreme Heat, Extreme Cold, Heavy Winds, Heavy Rain, Ice, or Earthquake. The Bound can end any Tilt she creates as a reflective action."
+      }]
+    }, {
+      "dots": 5,
+      "name": "The New Law",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": 2,
+        "type": "instant",
+        "description": "The Bound states a rule that must be followed by all that enter the Boneyard. A target that violates the rules of the Boneyard gains the Defiant Condition (p.XX) for the duration of the Boneyard. Any roll to violate the law of the Boneyard receives a penalty equal to half of the Sin-Eater’s Synergy. Those entering the Boneyard do not automatically know the rules. This Enhancement may be applied more than once, but only when the Boneyard is created."
+      }, {
+        "key": "5-2",
+        "cost": 2,
+        "type": "persistent",
+        "description": "The Bound gains the rote action quality to all rolls to punish occupants of the Boneyard that break her law and counts as a Bane for all ghosts that violate the rule."
+      }]
+    }]
+  },
+  {
+    "key": "caul",
+    "name": "Caul",
+    "conditions": ["caul"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Extrude the Caul",
+      "type": "action",
+      "action": {
+        "type": "simple",
+        "time": "instant",
+        "pool": ["Synergy", "Caul"],
+        "cost": { "min": 1, "max": 5 },
+        "chargesPerPlasm": 1,
+        "success": "The Sin-Eater dons the Caul, becoming one with her geist. She gains the Caul Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Extrude the Caul.",
+        "failure": "The Sin-Eater fails to entice the geist into her body.",
+        "dramatic": "The merging of Plasm and flesh goes horrifically wrong as bodies distort and fail to come together. The geist pulls away, trapping the Sin-Eater in Twilight for the duration of the scene."
+      }
+    }, {
+      "dots": 2,
+      "name": "Cold Flesh",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 3,
+        "description": "The Bound gains a general Armor rating equal to her Caul rating, and a ballistic Armor rating equal to half her Caul rating (rounded up).",
+        "type": "persistent"
+      }]
+    }, {
+      "dots": 3,
+      "name": "Vitate",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "upgrade",
+        "action": {
+          "chargesPerPlasm": 2
+        }
+      }, {
+        "key": "3-2",
+        "cost": { "min": 1, "max": 4 },
+        "description": "The Sin-Eater’s body swells and bloats, gaining Size equal to Plasm spent. For every 2 Size gained, he also gains a dot a Strength.",
+        "type": "persistent"
+      }, {
+        "key": "3-3",
+        "cost": 1,
+        "description": "The Sin-Eater warps his body into a scuttling thing, all spindly limbs and gripping fingers. He moves at twice his normal Speed on the ground, and can climb walls and ceilings at his normal Speed.",
+        "type": "persistent"
+      }, {
+        "key": "3-4",
+        "cost": 1,
+        "description": "The Sin-Eater’s next unarmed attack inflicts lethal damage.",
+        "type": "instant"
+      }, {
+        "key": "3-5",
+        "cost": 2,
+        "description": "The Sin-Eater grows wings, allowing him to fly at his normal Speed.",
+        "type": "persistent"
+      }, {
+        "key": "3-6",
+        "cost": 4,
+        "description": "The Sin-Eater transforms into a swarm of tiny animals or visous mass of flesh capable of seeping through any crack wide enough to permit light through. Passing through cracks takes one turn per point of Size.",
+        "type": "persistent"
+      }]
+    }, {
+      "dots": 4,
+      "name": "Disarticulation",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": { "min": 1, "max": 5 },
+        "description": "The Sin-Eater creates a homonculus with (Plasm spent) Health levels. This homonculus follows simple commands (e.g. “Carry this,” “Kill her,” “Guard that”) and has a dice pool equal to (2 x Plasm spent) for all physical actions, and a chance die for social and mental actions. Commanding any humber of homunculi is an instant action.",
+        "type": "instant",
+        "limit": "the Sin-Eater’s Synergy"
+      }]
+    }, {
+      "dots": 5,
+      "name": "The Hungry Dead",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": "(Victim’s Size)",
+        "type": "charge-effect",
+        "description": [
+          "The Sin-Eater wholly consumes a recently-dead being or recently-incapacitated ghost of Size no greater than 7. If the Sin-Eater consumed the target via ectophagia (p. 99), this Enhancement costs no Plasm. Charge effect options last until the duration of the Caul ends or the Sin-Eater uses any other Caul Enhancement. Once that happens, the Sin-Eater permanently loses the ability to mimic the consumed victim.",
+          "Add the following effects to the Caul Condition. These effects last until the duration of the Caul ends or the Sin-Eater uses any other Caul Enhancement. Once that happens, the Sin-Eater permanently loses the ability to mimic the consumed victim."
+        ],
+        "effects": [
+          "Mimic the appearance of the consumed victim for five minutes. You may extend the duration by spending more charges. If used on a ghost, the Sin-Eater appears as the ghost did in life.",
+          "Use the Attributes and Skills of the consumed victim in place of your own on a single action. If used on a ghost, the Sin-Eater uses the ghost’s relevant Attribute + Rank."
+        ]
+      }]
+    }]
+  },
+  {
+    "key": "curse",
+    "name": "Curse",
+    "conditions": ["curse"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Lay the Curse",
+      "type": "action",
+      "action": {
+        "type": "contested",
+        "time": "instant",
+        "requirement": "The Sin-Eater must touch the victim to lay the Curse.",
+        "pool": ["Synergy", "Curse"],
+        "contested": ["Resolve", "Synergy"],
+        "cost": { "min": 1, "max": 4 },
+        "chargesPerPlasm": 1,
+        "success": "The victim is plagued with bad luck. She gains the Curse Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Lay the Curse.",
+        "failure": "The Curse does not manifest.",
+        "dramatic": "The Bound leaves a trace of Plasm on the victim, but not in the way he intended. The victim regains a point of Willpower; the Sin-Eater suffers the effects of the Curse until the end of the scene."
+      }
+    }, {
+      "dots": 2,
+      "name": "Gremlin",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 2,
+        "type": "charge-effect",
+        "description": "Add the following effects to the options available from the Curse Condition.",
+        "effects": ["A piece of equipment goes haywire. Its equipment bonus becomes a penalty for the rest of the scene when the Cursed character uses it. For a second charge, the equipment inflicts damage equal to its equipment bonus the next time the Cursed character tries to use it."]
+      }, {
+        "key": "2-2",
+        "cost": 2,
+        "type": "charge-effect",
+        "description": "Add the following effects to the options available from the Curse Condition.",
+        "effects": ["The victim cannot start fires for the rest of the scene, and any fires she has lit during the scene extinguish themselves."]
+      }]
+    }, {
+      "dots": 3,
+      "name": "Malady",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "upgrade",
+        "action": {
+          "chargesPerPlasm": 2
+        }
+      }, {
+        "key": "3-2",
+        "cost": 2,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Curse Condition.",
+        "effects": ["The victim suffers 3 poitns of lethal damage, then the Curse condition resolves."]
+      }, {
+        "key": "3-3",
+        "cost": 2,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Curse Condition.",
+        "effects": ["Inflict one of the following Tilts: Arm Wrack, Blinded, Deafened, Insane, Knocked Down, Leg Wrack, Poisoned, or Sick. The effects of the Tilt last until the end of the scene."]
+      }]
+    }, {
+      "dots": 4,
+      "name": "Exhaustion",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": 3,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Curse Condition.",
+        "effects": ["Turn the victim’s next Social roll into a chance die."]
+      }, {
+        "key": "4-2",
+        "cost": 3,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Curse Condition.",
+        "effects": ["Prevent the victim from gaining Willpower from one event."]
+      }]
+    }, {
+      "dots": 5,
+      "name": "Forgotten",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": 3,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Curse Condition.",
+        "effects": ["The character must spend a Willpower point to have anyone other than the Sin-Eater who cursed him register his presence.  Lasts until the end of the scene."]
+      }, {
+        "key": "5-2",
+        "cost": 3,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Curse Condition.",
+        "effects": ["Block one of the victim’s Social Merits.  Lasts until the end of the scene."]
+      }, {
+        "key": "5-3",
+        "cost": 3,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Curse Condition.",
+        "effects": ["The victim can see, touch, and interact with ghosts as though they were living.  Lasts until the end of the scene."]
+      }]
+    }]
+  },
+  {
+    "key": "dirge",
+    "name": "Dirge",
+    "conditions": ["dirge"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Sing the Dirge",
+      "type": "action",
+      "action": {
+        "type": "contested",
+        "time": "instant",
+        "requirement": "You must sing a haunting, wordless song at conversational volume or louder. You must also choose a simple emotional state or action the Dirge urges its targets toward (e.g. “calm,” “stop fighting,” or “come to me”).",
+        "subject": "(Plasm spent) targets who can hear the Sin-Eater.",
+        "pool": ["Synergy", "Dirge"],
+        "contested": ["Composure", "Synergy"],
+        "cost": { "min": 1, "max": 5 },
+        "success": "The subject gains the Dirge Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Sing the Dirge.",
+        "failure": "The target is no more touched by the Sin-Eater’s music than they are by elevator Muzak.",
+        "dramatic": "The listener isn’t moved by the song in the slightest and becomes unreceptive to the Sin-Eater’s power. The Bound takes a -3 penalty to using the Dirge on the target for the rest of the story."
+      }
+    }, {
+      "dots": 2,
+      "name": "Paean",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": { "min": 1, "max": 5 },
+        "type": "instant",
+        "description": "The Sin-Eater distributes Essence equal to Plasm spent to any ghosts with the Dirge Condition."
+      }, {
+        "key": "2-2",
+        "cost": 2,
+        "type": "instant",
+        "description": "A living character with the Dirge Condition also gains the Inspired Condition."
+      }]
+    }, {
+      "dots": 3,
+      "name": "Communion",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "upgrade",
+        "action": {
+          "subject": "Anyone capable of hearing within an area determined by Plasm spent. If rolling for each target becomes unfeasible, contest the power with the highest Composure + Synergy of all targets.",
+          "table": [
+            ["Plasm Spent", "Area"],
+            ["1", "A small room"],
+            ["2", "A large room"],
+            ["3", "Several rooms, or a single floor of a house"],
+            ["4", "A ballroom or small house"],
+            ["5", "A large house or building"]
+          ]
+        }
+      }, {
+        "key": "3-2",
+        "cost": 2,
+        "type": "persistent",
+        "description": "The Sin-Eater has a Perfect social impression, and may roll Synergy + Dirge to open Doors in a Social Maneuver, against any character with the Dirge Condition."
+      }]
+    }, {
+      "dots": 4,
+      "name": "Exaltation",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": 2,
+        "type": "instant",
+        "description": "The Sin-Eater removes (without resolving) one of the following Conditions from a subject with the Dirge Condition: Beaten Down, Broken, Deprived, Guilty, Madness, Obsession, Shaken, or Spooked. Peristent Conditions are suppressed until the Dirge Condition ends."
+      }, {
+        "key": "4-2",
+        "cost": 3,
+        "type": "instant",
+        "description": "The Sin-Eater gives one of the following Conditions to a subject with the Dirge Condition: Beaten Down, Connected, Deprived, Guilty, Inspired, Obsession, Shaken, Spooked, or Swooning."
+      }]
+    }, {
+      "dots": 5,
+      "name": "Visitation",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": { "min": 1, "max": 5},
+        "type": "instant",
+        "description": "The Sin-Eater spends Plasm equal to the Rank of a ghost with the Dirge Condition. That target gains a Manifestation Condition of te Sin-Eater’s choice."
+      }]
+    }]
+  },
+  {
+    "key": "marionette",
+    "name": "Marionette",
+    "conditions": ["marionette", "servant"],
+    "ranks": [{
+      "dots": 1,
+      "name": "String the Marionette",
+      "type": "action",
+      "action": {
+        "type": "contested",
+        "time": "instant",
+        "subject": "A target creature or object of Size up to (Plasm spent)",
+        "pool": ["Synergy", "Marionette"],
+        "contested": ["Stamina", "Synergy"],
+        "cost": { "min": 1, "max": 3 },
+        "success": "The target gains the Marionette Condition",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on String the Marionette.",
+        "failure": "Tendrils of Plasm fail to take hold.",
+        "dramatic": "The tendrils of Plasm latch on to the target, but tear off, leaving a thick layer of ectoplasmic slime behind. For the rest of the story, attempts to use the Marionette on the same target fail automatically."
+      }
+    }, {
+      "dots": 2,
+      "name": "Swarm",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 2,
+        "type": "instant",
+        "description": "String the Marionette affects a number of targets equal to the Sin-Eater’s Marionette dots. Multiple targets may be commanded as a single instant action, as long as all of them do the same thing (e.g. several dolls all pointing at the same character, multiple televisions turning on at once). Attacking with multiple Puppets halves the target’s Defense."
+      }]
+    }, {
+      "dots": 3,
+      "name": "Phantom Strength",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "upgrade",
+        "action": {
+          "subject": "A target creature or object of Size up to (Marionette + [2 × Plasm spent])"
+        }
+      }, {
+        "key": "3-2",
+        "cost": 2,
+        "type": "instant",
+        "description": "The next attempt to resist the Sin-Eater’s control of a puppet suffers a -3 penalty. This Enhancement may only be applied once per action."
+      }]
+    }, {
+      "dots": 4,
+      "name": "Servant",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": 2,
+        "type": "instant",
+        "description": "Replace the Marionette Condition on a single target you control with the Servant Condition."
+      }, {
+        "key": "4-2",
+        "cost": 4,
+        "type": "instant",
+        "description": "The Servant Condition (on all targets) ends without resolving after 24 hours."
+      }]
+    }, {
+      "dots": 5,
+      "name": "Traitor Flesh",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": 2,
+        "type": "instant",
+        "description": "The next time a sapient Marionette takes lethal damage or suffers a breaking point, they do not resolve the Condition."
+      }, {
+        "key": "5-2",
+        "cost": 3,
+        "type": "instant",
+        "description": "The next time a Marionette tries to fight against something the Ein-Eater wants to do, he suffers 2 lethal damage. This Enhancement may only be applied once per attempted resistance."
+      }]
+    }]
+  },
+  {
+    "key": "memoria",
+    "name": "Memoria",
+    "conditions": ["actor, memoria"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Recall the Memoria",
+      "type": "action",
+      "action": {
+        "type": "charged",
+        "time": "instant",
+        "requirement": "You must be at the site of a traumatic death, or in the presence of a ghost’s Anchor that relates to the memory, and ou must know at least three details of the memory you’re trying to invoke (e.g. the name of the dead, the date and time of the event, the killer’s identity, the specific murder weapon, etc.). The memory must be of a ghost’s death, or of a significant event that led up to the death.",
+        "pool": ["Synergy", "Memoria"],
+        "cost": { "min": 1, "max": 5 },
+        "chargesPerPlasm": 1,
+        "success": "The Sin-Eater is able to find a memory of the event in question. She gains the Memoria Condition for the scene.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Recall the Memoria.",
+        "failure": "The Bound gains no insight into the past they didn’t already know.",
+        "dramatic": "The Sin-Eater becomes trapped in the vision, unable to interact with the real world."
+      }
+    }, {
+      "dots": 2,
+      "name": "Dénouement",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": { "min": 1, "max": 5 },
+        "type": "persistent",
+        "description": "The visions of the past are clearly visible to anyone present, though nothing in the scene can be interacted with and only the Sin-Eater receives the Memoria Condition. Characters may attempt a reflexive Wits + Composure action to recognize the scene’s intangibility before inadvertently harming themselves. The Plasm cost depends on the size of the scene to be recreated.",
+        "table": [
+          ["Plasm Spent", "Area"],
+          ["1", "A small room"],
+          ["2", "A large room"],
+          ["3", "Several rooms, or a single floor of a house"],
+          ["4", "A ballroom or a small house"],
+          ["5", "A large house or building"]
+        ]
+      }]
+    }, {
+      "dots": 3,
+      "name": "Memory in a Bottle",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "upgrade",
+        "action": {
+          "chargesPerPlasm": 2
+        } 
+      }, {
+        "key": "3-2",
+        "cost": 3,
+        "type": "instant",
+        "description": [
+          "The Sin-Eater resolves the Memoria Condition and fills a container with Plasm charged with the memory itself. Anyone who consumes this Plasm gains the Memoria Condition, with as many charges as it originally had when placed in the container. Sin-Eaters don’t gain Plasm from this; the metaphysical energy of the Plasm is tied up in the memory.",
+          "While the memory is bottled, attempts to invoke it through Recall the Memoria fail automatically. If the container is destroyed or the Plasm poured out, the memory is lost forever."
+        ]
+      }]
+    }, {
+      "dots": 4,
+      "name": "Mystery Play",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": { "min": 1, "max": 5 },
+        "type": "instant",
+        "description": "Draw one target per Plasm spent into the illusionary scenario. They gain the Actor Condition. Unwilling participants may contest the roll with Resolve + Synergy. The Sin-Eater cannot create more Actors than there were people present in the actual memory."
+      }]
+    }, {
+      "dots": 5,
+      "name": "Break the Cycle",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": 2,
+        "type": "persistent",
+        "description": "Add the following effects to the Actor Condition for all Actors in the scene:",
+        "effects": [
+          "The character may go “off-script” with a reflexive Resolve + Synergy roll, making actions or statements that are not part of the original memory and altering its outcome.",
+          "When the Actor Condition resolves, the target immediately resolves another Condition related to a breaking point or other trauma related to the memory.",
+          "A ghost that resolves the Actor Condition may immediately resolve an Anchor relevant to the memory.",
+          "A Rank 1 ghost that resolves the Actor Condition rises to Rank 2."
+        ]
+      }]
+    }]
+  },
+  {
+    "key": "oracle",
+    "name": "Oracle",
+    "conditions": ["oracle"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Consult the Oracle",
+      "type": "action",
+      "action": {
+        "type": "simple",
+        "time": "instant",
+        "pool": ["Synergy", "Oracle"],
+        "cost": { "min": 1, "max": 4 },
+        "chargesPerPlasm": 1,
+        "success": "The Sin-Eater gains the Oracle Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Consult the Oracle",
+        "failure": "The Sin-Eater comes out of his trance unharmed and unfortunately alive. The Oracle is not activated",
+        "dramatic": "The Bound’s spirit breaks free of the Plasmic bonds taht connect it to his body and becomes lost. The Sin-Eater gains te Dead Condition."
+      }
+    }, {
+      "dots": 2,
+      "name": "Wandering Shade",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 1,
+        "type": "charge-effects",
+        "description": "Add the following questions to the Oracle Condition’s list of questions:",
+        "effects": [
+          "What is the biggest threat to me and mine? *The revving of a diesel truck engine and the sight of a license plate as someone new drives into town.*",
+          "Who is most in need of our aid? *The sight of an emaciated man ringed by a circle of salt.*",
+          "Who is guilty of crimes against the dead? *The scent of begonias and powdered bone accompanied with the vision of a dinner table strewn with ectoplasmic flesh.*",
+          "What has been forgotten here? *The sound of trickling water turning into a roaring river from behind a cement wall in the local morgue.*"
+        ]
+      }]
+    }, {
+      "dots": 3,
+      "name": "Spirit Reading",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "upgrade",
+        "action": {
+          "chargesPerPlasm": 2
+        }
+      }, {
+        "key": "3-2",
+        "cost": 2,
+        "type": "charge-effects",
+        "description": "Add the following questions to the Oracle Condition’s list of questions:",
+        "effects": [
+          "What is the Ban of [a ghost I know]? *The patter of rainfall. The sharp medicinal smell of quinine.*",
+          "What is the Bane of [a ghost I know]? *The touch of silk that burns like fire. Salt, bright and terrible as uranium.*",
+          "What ties [a ghost I know] to the mortal plane? *A wedding ring heavy as a millstone. Chains studded with photographs of the same person, from infancy to manhood.*"
+        ]
+      }]
+    }, {
+      "dots": 4,
+      "name": "Descent",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": 3,
+        "type": "instant",
+        "description": "The Sin-Eater can answer a single question about the Underworld.",
+        "listLabel": "Sample Questions:",
+        "listItems": [
+          "Does one of Irkalla’s Gates bar travel deeper through this Avernian Gate? *The rattling of ancient coins. A hawker’s call for trade of descendants in exchange for passage.*",
+          "What are the laws of this Domain? *A vision of the Domain’s stone slate.*",
+          "Does this Ferrymane trade fairly? *The rushing cry of someone falling through the false bottom of a vessel.*"
+        ]
+      }]
+    }, {
+      "dots": 5,
+      "name": "Nekyia",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": 4,
+        "type": "instant",
+        "description": "The Sin-Eater may answer a single question about future events.",
+        "listLabel": "Sample Questions:",
+        "listItems": [
+          "Who amongst my krewe will betray me? *The cheap stink of the signature cologne of a member of the krewe. A vision of one of the celebrants placing a death masque over their face.*",
+          "What trial awaits us in the Underworld? *The vision of a great obsidian gate layered in the flayed skin of traveling ghosts. The sound of one of the Kerberoi reciting the Old Laws over and over again.*",
+          "When will our enemies be at their weakest? *The sounds of heavy bass and the taste of cheap whiskey. A “get well soon” card and a novelty stuffed animal.*",
+          "Is this course of action going to get me killed all over again? *The warm blush of a gunshot wound to the stomach. A vision of the Sin-Eater being torn apart by angry shades.*"
+        ]
+      }]
+    }]
+  },
+  {
+    "key": "rage",
+    "name": "Rage",
+    "conditions": ["rage"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Vent the Rage",
+      "type": "action",
+      "action": {
+        "type": "simple",
+        "time": "instant",
+        "pool": ["Synergy", "Rage"],
+        "cost": { "min": 1, "max": 4 },
+        "success": "The Sin-Eater gains the Rage Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Vent the Rage.",
+        "failure": "The Plasm coalesces around the Sin-Eater’s body but does not solidify.",
+        "dramatic": "The Plasm running through the Sin-Eater’s body tears out of her skin, shredding her flesh. The Sin-Eater suffers one point of lethal damage, plus another for each Enhancement she applied. These injuries cannot be downgraded with Plasm."
+      }
+    }, {
+      "dots": 2,
+      "name": "Black-Iron Blade",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 2,
+        "type": "instant",
+        "description": "The next time the Sin-Eater inflicts damage, he also inflicts one of the following Tilts: Arm Wrack, Blinded, Deafened, Knocked Down, Leg Wrack, or Poisoned."
+      }]
+    }, {
+      "dots": 3,
+      "name": "Maelstrom",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "persistent",
+        "description": "The Sin-Eater may make unarmed ranged attacks out to 30 yards."
+      }, {
+        "key": "3-2",
+        "cost": 2,
+        "type": "instant",
+        "description": "The Sin-Eater’s next unarmed ranged attack is treated as a medium-burst autofire attack (p. 159)."
+      }]
+    }, {
+      "dots": 4,
+      "name": "Shatter",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": 3,
+        "type": "instant",
+        "description": "The Sin-Eater’s next unarmed attack inflicts aggravated damage."
+      }, {
+        "key": "4-2",
+        "cost": 2,
+        "type": "instant",
+        "description": "The next character who suffers a breaking point caused by taking damage from the Rage gains the Fugue Condition."
+      }]
+    }, {
+      "dots": 5,
+      "name": "Breaking the World",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": 4,
+        "type": "persistent",
+        "description": "The environment in the scene suffers one of the following Tilts: Blizzard, Earthquake, Flooded, Heavy Rain, Heavy Winds, or Ice, even if it is otherwise unlikely for the location (e.g. Heavy Rain while indoors). Where the Tilt requires a severity, use the Rage’s weapon modifier. The Sin-Eater is immune to this Tilt."
+      }]
+    }]
+  },
+  {
+    "key": "shroud",
+    "name": "Shroud",
+    "conditions": ["shroud"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Don the Shroud",
+      "type": "action",
+      "action": {
+        "type": "simple",
+        "time": "instant",
+        "pool": ["Synergy", "Shroud"],
+        "cost": { "min": 1, "max": 4 },
+        "chargesPerPlasm": 1,
+        "success": "The Sin-Eater coats himself in a thin layer of Plasm containig the essence of his geist. He gains the Shroud Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Don the Shroud.",
+        "failure": "Plasm fails to coalesce around the Sin-Eater.",
+        "dramatic": "The coating of Plasm seals the Sin-Eater’s face, leaving him unable to see, hear, or even breathe. He will suffocate unless he takes an instant action to clear the ooze from his airway."
+      }
+    }, {
+      "dots": 2,
+      "name": "Vision of Mist",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 1,
+        "type": "persistent",
+        "description": "Your body registers no temperature, and you don’t set off motion detectors, laser tripwires, or similar sensors."
+      }, {
+        "key": "2-2",
+        "cost": 2,
+        "type": "persistent",
+        "description": "You can hover and fly in any direction at half your Speed."
+      }]
+    }, {
+      "dots": 3,
+      "name": "Haunting Presence",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Shroud Condition.",
+        "effects": ["Spend (Shroud rating) minutes in Twilight."]
+      }, {
+        "key": "3-2",
+        "cost": 3,
+        "type": "instant",
+        "description": "The Sin-Eater gains onf of the following Manifesation effects or Numina, usable while she is in Twilight. The Sin-Eater rolls Synergy + Shroud and spends Plasm instead of Essence.",
+        "listItems": [
+          "Discorporate (In lieu of ghostly hibernation, the Sin-Eater reforms in a gout of Plasm 24 hours later at the last place she died. She reforms with no Plasm.)",
+          "Fetter",
+          "Image",
+          "Possess",
+          "Sign (Numen)",
+          "Hallucination (Numen)"
+        ]
+      }]
+    }, {
+      "dots": 4,
+      "name": "Harrow",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": 2,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Shroud Condition.",
+        "effects": ["Bring another person you are holding on to with you into Twilight. If they’re resisting, you must grapple them (p. 158) first."]
+      }]
+    }, {
+      "dots": 5,
+      "name": "Descent",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": 3,
+        "type": "charge-effect",
+        "description": "Add the following effect to the options available from the Shroud Condition.",
+        "effects": ["Cross into or out of the Upper Reaches of the Underworld. For an additional charge, you may bring one person you’re holding into (but not out of) the Underworld. If they’re resisting, you must grapple them (p. 158) first."]
+      }]
+    }]
+  },
+  {
+    "key": "tomb",
+    "name": "Tomb",
+    "conditions": ["tomb"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Open the Tomb",
+      "type": "action",
+      "action": {
+        "type": "simple",
+        "time": "instant",
+        "requirement": "The subject must come from an object that has been destroyed or a dead person or animal.",
+        "subject": "A piece of one object or creature whose original Size was up to (Tomb + Plasm spent).",
+        "pool": ["Synergy", "Tomb"],
+        "cost": { "min": 1, "max": 4 },
+        "success": "The subject gains the Tomb Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Open the Tomb.",
+        "failure": "Plasm fails to coalesce.",
+        "dramatic": "The Sin-Eater’s memories grow clouded as she struggles to differentiate what is and what was. She can remember faces, but has no idea to whom they belong; she remembers an address but has no idea that it’s her home. She suffers the Addled"
+      }
+    }, {
+      "dots": 2,
+      "name": "Headstone",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 2,
+        "type": "instant",
+        "description": "The Sin-Eater may use Open the Tomb on a representation of an object or creature (e.g. a photograph or recording), or an object closely linked to it (e.g. a man’s wedding ring or the keys to a house). The representation must still be of a specific object or person — a drawing of “a policeman” won’t work. In the case of a representation, the Plasmic recreation represents the object as it is depicted. This Enhancement must be applied when Open the Tomb is activated."
+      }]
+    }, {
+      "dots": 3,
+      "name": "Empty Graves",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 0,
+        "type": "upgrade",
+        "action": {
+          "subject": "A piece of one object or creature whose original Size was up to ([Tomb + Plasm spent] × 2)."
+        }
+      }, {
+        "key": "3-2",
+        "cost": 0,
+        "type": "persistent",
+        "description": "The Tomb Condition becomes Persistent."
+      }, {
+        "key": "3-3",
+        "cost": 0,
+        "type": "persistent",
+        "description": "Replicas of living beings are capable of following simple instructions. They have their original Physical Attributes and Skills, but all Social and Mental actions are reduced to chance die."
+      }, {
+        "key": "3-4",
+        "cost": 3,
+        "type": "persistent",
+        "description": "The Plasmic replica created by Open the Tomb has the Open Condition. For replicas of people or animals, the ghost of the original can Possess the replica, even if the ghost doesn’t have the Possess Manifestation."
+      }]
+    }, {
+      "dots": 4,
+      "name": "Stygian Treasures",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": 2,
+        "type": "persistent",
+        "description": "Anyone using the object can see the dead. This Enhancement must be applied when Open the Tomb is activated."
+      }, {
+        "key": "4-2",
+        "cost": 2,
+        "type": "persistent",
+        "description": "Anyone using the object can hear the dead. This Enhancement must be applied when Open the Tomb is activated."
+      }, {
+        "key": "4-3",
+        "cost": 2,
+        "type": "persistent",
+        "description": "Anyone using the object can speak to the dead. This Enhancement must be applied when Open the Tomb is activated."
+      }, {
+        "key": "4-4",
+        "cost": 2,
+        "type": "persistent",
+        "description": "The object can communicate between the living world and the Underworld. This Enhancement must be applied when Open the Tomb is activated."
+      }]
+    }, {
+      "dots": 5,
+      "name": "Terra Cotta Soldiers",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": { "min": 1, "max": 5 },
+        "type": "instant",
+        "description": "The Sin-Eater may use Open the Tomb on a wholly symbolic representation of a person, animal, or object, creating a piece of equipment or an appropriate Merit (e.g. Retainer, Library, etc). The Plasm cost of this Enhancement is equal to the cost of the Merit or Availability of the object. This Enhancement must be applied at the same time Open the Tomb is activated."
+      }]
+    }]
+  },
+  {
+    "key": "void",
+    "name": "Void",
+    "conditions": ["void", "void-storm", "maw"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Awaken the Void",
+      "type": "action",
+      "action": {
+        "type": "simple",
+        "time": "instant",
+        "pool": ["Synergy", "Void"],
+        "cost": { "min": 1, "max": 4 },
+        "table": [
+          ["Plasm Spent", "Area"],
+          ["1", "One room"],
+          ["2", "Several rooms, or a single floor of a house"],
+          ["3", "A ballroom or small house"],
+          ["4", "A large house or building"]
+        ],
+        "success": "The Sin-Eater gains the Void Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Awaken the Void.",
+        "failure": "The Sin-Eater gains the Void Condition and the Void Storm Condition.",
+        "dramatic": "The Sin-Eater gains the Void Condition and the Maw Condition."
+      }
+    }, {
+      "dots": 2,
+      "name": "Annihilation of Form",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": 3,
+        "type": "persistent",
+        "description": "The Sin-Eater may make ranged attacks out to 30 yards, dealing lethal damage."
+      }, {
+        "key": "2-2",
+        "cost": "1+",
+        "type": "instant",
+        "description": "The Sin-Eater may erase objects or features of the terrain, at a cost of 1 Plasm plus 1 Plasm per Size in excess to her Synergy. She may not target living creatures with this Enhancement unless they’re restrained or otherwise cannot move."
+      }]
+    }, {
+      "dots": 3,
+      "name": "Feasting on Infinity",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 2,
+        "type": "persistent",
+        "description": "The Sin-Eater is no longer Blinded (p. 292) by Awaken the Void."
+      }, {
+        "key": "3-2",
+        "cost": 2,
+        "type": "persistent",
+        "description": "The Sin-Eater’s bite attack deals aggravated damage. She can only bite grappled targets. The Sin-Eater may also consume any material or substance without adverse consequences, such as poisons, unless those materials pose problems for the rest of the Sin-Eater’s body (e.g., getting close enough to lava to eat it)."
+      }, {
+        "key": "3-3",
+        "cost": 0,
+        "type": "persistent",
+        "description": "For every 10 Health, Structure, or Corpus the Sin-Eater consumes, she gains 1 Plasm."
+      }]
+    }, {
+      "dots": 4,
+      "name": "The End of All Things",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": "1+",
+        "type": "instant",
+        "description": "The Sin-Eater conjures a Size 1 sphere of the Void anywhere within her void-wake. This sphere creates its own area of effect of equal size to the Sin-Eater’s void-wake. Anything that makes contact with the sphere suffers 1 aggravated damage per turn and is consumed completely when its Health or Structure track is filled.",
+        "listItems": [
+          "**Powerful Pull:** Within the Sphere’s area of effect, objects up to Size equal to Plasm spent are inexorably drawn towards the sphere. Characters or other entities capable of movement may resist this pull with a reflexive Strength + Athletics roll, but must do so on every turn.",
+          "**Overcharge:** If the Sin-Eater spent more Plasm than her Synergy to invoke the Void sphere, it persists beyond this scene and may grow larger according to the rules in Out of Control.",
+          "**Out of Control:** If the Void sphere consumes Structure, Health, or Corpuse equal to (Size x 10), it increases in Size by 1. Its Duration and its “growth track” of material consumed is reset.",
+          "**Starve the Beast:** If the Void sphere does not deal at least 1 damage for (Size + 1) rounds, the sphere collapses and vanishes."
+        ]
+      }]
+    }, {
+      "dots": 5,
+      "name": "The Wrong-Way Door",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": "5+",
+        "type": "instant",
+        "description": "The Sin-Eater opens a passage between the living world and the Underworld, accessible both in Twilight and the material realm. This passage persists until the next sunset, unless additional Plasm is spent, one day per Plasm. By default, the passage is just large enough to encompass a Size 6 person, but additional Plasm may be spent to increase the Size of the passage, 2 Size per Plasm. There is no limit to this Plasm expenditure save the Sin-Eater’s reserves."
+      }]
+    }]
+  },
+  {
+    "key": "well",
+    "name": "Well",
+    "conditions": ["well", "fragmented"],
+    "ranks": [{
+      "dots": 1,
+      "name": "Submerge the Self",
+      "type": "action",
+      "action": {
+        "type": "simple",
+        "time": "instant",
+        "pool": ["Synergy", "Well"],
+        "cost": "1+",
+        "success": "The Sin-Eater gains the Well Condition.",
+        "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Submerge the Self.",
+        "failure": "The Sin-Eater remains stubbornly solid.",
+        "dramatic": "The Sin-Eater’s identity becomes almost uncontrollably fluid. She gains the Fragmented Condition."
+      }
+    }, {
+      "dots": 2,
+      "name": "Awash in Unknown Tides",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "2-1",
+        "cost": { "min": 1, "max": 5 },
+        "type": "instant",
+        "description": "The Sin-Eater may generate an Environmental Tilt with penalties or bonuses equal to Plasm spent. The effects of the Environmental Tilt last until the end of the scene."
+      }, {
+        "key": "2-2",
+        "cost": { "min": 1, "max": 5 },
+        "type": "instant",
+        "description": "The Sin-Eater may generate an Extreme Environment with a severity equal to plasm spent. The effects of the Extreme Environment last until the end of the scene."
+      }]
+    }, {
+      "dots": 3,
+      "name": "Lightless Depths",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "3-1",
+        "cost": 2,
+        "type": "persistent",
+        "description": "No one who sees the Sin-Eater while the Well is active will remember her or anything she did during this time, even if this causes serious inconsistencies in the narrative of their memory. Inflict Amnesia (**Chronicles of Darkness**, p. 288) on anyone who spends more than ten minutes (or one scene) in the Sin-Eater’s company."
+      }, {
+        "key": "3-2",
+        "cost": 3,
+        "type": "instant",
+        "description": "The Sin-Eater can strip Memories from others unwillingly. This requires a successful barehanded attack, or for the subject to be restrained. Using this power always causes a crisis point for the Sin-Eater’s geist."
+      }]
+    }, {
+      "dots": 4,
+      "name": "Vortices of Self and Memory",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "4-1",
+        "cost": { "min": 1, "max": 3 },
+        "type": "instant",
+        "description": "The Sin-Eater melds two Memories together to create a single Memory. The narrative of the new Memory must incorporate aspects fo both source Memories, but the Sin-Eater has room for artistic license so long as all aspects of the final Memory can be found in either source Memory. This requires 1 Plasm plus an additional Plasm for every dot of Memory Skill the Sin-Eater wishes to keep between the source Memories. She cannot include new Memory Skills, and a Memory may only have two Memory Skills associated with it."
+      }, {
+        "key": "4-2",
+        "cost": "1+",
+        "type": "instant",
+        "description": "The Sin-Eater melds a memory with a target mind, either inserting one as-is or melding it with an existing Memory belonging to the target (in which case she must pay the above Plasm cost as well). This requires 1 Plasm per dot of Resolve the target possesses."
+      }]
+    }, {
+      "dots": 5,
+      "name": "Remade in the Ocean’s Womb",
+      "type": "enhancement",
+      "enhancements": [{
+        "key": "5-1",
+        "cost": "1+",
+        "type": "instant",
+        "description": "The Sin-Eater may strip Traits as well as Memories from subjects, who must be fully immersed. This requires 1 Plasm per dot of Trait being removed. Each Trait occupies the same Synergy “slots” as Memories, and the Sin-Eater may gain the benefits of these Traits while the Well Condition is active. Attributes, Physical Merits, Mental Merits, and Social Merits that rely on intrinsic qualities are valid targets, as are non-mechanical features such as overall appearance, sex, and the like (which requrie a single Plasm to strip)."
+      }, {
+        "key": "5-2",
+        "cost": "1+",
+        "type": "instant",
+        "description": "The Sin-Eater may graft Traits, Memories, and features to immersed subjects. This requires 1 Plasm per dot of Trait, 1 Plasm per feature, or 1 Plasm per Memory plus 1 Plasm for every dot of Memory Skill being transferred."
+      }]
+    }]
+  }
+]

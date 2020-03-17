@@ -1,0 +1,63 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+
+@import "fonts";
+
+$paragraph-margin-bottom: 0;
+
+$box-shadow: 0 .5rem 1rem rgba(#000, .25);
+
+$font-family-base: goudy-old-style-bt;
+$headings-margin-bottom: 0;
+// $headings-font-family: trinigan;
+$headings-font-weight: bold;
+
+$navbar-brand-font-size: 2rem;
+
+$card-spacer-x: 0.5rem;
+$card-spacer-y: 0.5rem;
+
+$btn-focus-box-shadow: none;
+
+$theme-colors: (
+  "primary": #005394
+);
+
+@import "~bootstrap/scss/bootstrap";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// @include mat-core();
+@include mat-ripple();
+
+@import "scrollbar";
+@import "theming";
+
+p {
+  text-indent: 0.75rem;
+}
+
+ol, ul, dl {
+  margin-bottom: 0;
+  padding-inline-start: 1.25rem;
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+
+  &.drawerOpen {
+    overflow: hidden;
+  }
+}
+
+.navbar-brand {
+  font-family: trinigan;
+}
+
+.trinigan {
+  font-family: trinigan;
+  font-weight: normal;
+}

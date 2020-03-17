@@ -1,0 +1,7 @@
+<ng-container *ngFor="let condition of conditions$ | async; last as last">
+  <condition-card [condition]="condition" (toggle)="toggleExpand(condition.id)"></condition-card>
+  <hr *ngIf="!last" />
+</ng-container>
+<action-button (action)="addCondition()">
+  <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+</action-button>

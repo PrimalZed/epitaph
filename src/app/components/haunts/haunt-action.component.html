@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between">
+  <h2 class="trinigan">{{ rank.name }} (<span *ngIf="!showUpgrade">{{ rank.dots | dots }}</span><span *ngIf="showUpgrade">{{ 3 | dots }}</span>)</h2>
+  <div *ngIf="upgradeAction" class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" [id]="toggleId" [(ngModel)]="showUpgrade" [ngModelOptions]="{ standalone: true }">
+    <label class="custom-control-label" [for]="toggleId">Show {{ 3 | dots }} Upgrade</label>
+  </div>
+</div>
+<action *ngIf="!showUpgrade" [action]="rank.action"></action>
+<action *ngIf="showUpgrade" [action]="upgradeAction"></action>

@@ -1,0 +1,60 @@
+<div class="m-1 card shadow">
+  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center" matRipple (click)="toggleExpand()">
+    <div class="d-flex align-items-center">
+      <h3>{{ condition.name | uppercase }}</h3>
+      <div *ngIf="condition.type === 'charged'">({{ condition.charges }} charge{{ condition.charges === 1 ? "" : "s" }})</div>
+    </div>
+    <button class="btn text-white" matRipple (click)="remove(condition.id)">
+      <fa-icon [icon]="['fas', 'times']"></fa-icon>
+    </button>
+  </div>
+  <div class="card-body" matRipple (click)="toggleExpand()">
+    <div class="d-flex">
+      <div class="mr-2">
+        <h5>Subject</h5>
+        <div>{{ condition.subject }}</div>
+      </div>
+      <div class="mr-2">
+        <h5>Sin-Eater</h5>
+        <div>{{ condition.createdBy }}</div>
+      </div>
+      <div *ngIf="condition.primary">
+        <h5>Key</h5>
+        <div>{{ condition.unlockedKey?.shortName || "none" }}</div>
+      </div>
+    </div>
+    <div *ngIf="condition.expanded">
+      <hr />
+      <p class="mb-2">{{ condition.description }}</p>      
+      <p class="mb-2" *ngIf="condition.primary"><strong>Plasm Spent on Activation:</strong> {{ condition.activationPlasm}}</p>
+      <div *ngIf="condition.effects.length">
+        <h5 class="text-primary">Persistent Effects:</h5>
+        <ul>
+          <li *ngFor="let effect of condition.effects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
+        </ul>
+      </div>
+      <div *ngIf="condition.type === 'charged'">
+        <h5 class="text-primary">Instant Effects:</h5>
+        <p>{{ condition.chargeDescription }}</p>
+        <ul>
+          <li *ngFor="let effect of condition.chargeEffects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
+        </ul>
+        <p>The Condition ends, without resolving, when all charges have been spent.</p>
+      </div>
+      <div>
+        <h5 [ngSwitch]="condition.scope" class="text-primary">
+          <ng-container *ngSwitchCase="'condition'">Resolution:</ng-container>
+          <ng-container *ngSwitchCase="'tilt'">Ending the Tilt:</ng-container>
+        </h5>
+        <ul>
+          <li *ngFor="let resolution of condition.resolutions; odd as odd" [ngClass]="{ 'text-primary': !odd }">{{ resolution }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="condition.primary" class="card-footer">
+    <button class="btn text-primary" matRipple (click)="viewHaunt(condition.haunt)">View Haunt</button>
+    <button *ngIf="condition.type === 'charged'" class="btn text-primary" matRipple (click)="consumeCharge(condition.id)">Consume Charge</button>
+    <button class="btn text-primary" matRipple (click)="addEnhancement(condition.id, condition.haunt)">Add Enhancement Effects</button>
+  </div>
+</div>

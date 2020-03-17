@@ -1,0 +1,309 @@
+[
+  {
+    "key": "actor",
+    "name": "Actor",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "memoria",
+    "description": "You have become part of a Memoria, taking on the persona and actions of someone involved in the events. Your character doesn’t gain any knowledge of who their persona was or what they were thinking, but nonetheless your character finds themselves compelled to do what their persona did and say what theys aid during the Echo.",
+    "effects": [
+      "Your actions are dictated by the Echo in which you are participating.",
+      "If an action the character is compelled to take would be a breaking point (or a crisis point, or equivalent), or if you suffer lethal damage, you may attempt to break the spell with a reflexive Resolve + Composure roll. Being reminded of your true identity by someone not involved in the Echo also allows an attempt to break the spell.",
+      "While you have this Condition, the phantasmal memories *are* real and solid to you. You can walk up the image of a staircase that collapsed 80 years ago, pick up an illusionary gun, and be injured by phantom bullets."
+    ],
+    "resolutions": [
+      "The illusion plays out to completion.",
+      "The character succeeds at a roll to break the spell.",
+      "The character fails a breaking point roll caused by her persona’s actions.",
+      "You are confronted by the Ban or Bane of the inflicting Sin-Eater’s geist.",
+      "When this Condition resolves, the Sin-Eater who created it also takes a Beat."
+    ]
+  },
+  {
+    "key": "boneyard",
+    "name": "Boneyard",
+    "scope": "tilt",
+    "type": "simple",
+    "haunt": "boneyard",
+    "primary": true,
+    "description": "The Bound’s consciousness suffuses the haunted landscape. The walls imperceptibly shudder and shake as if they were breathing. Plasm in the environment seeps into inanimate objects, infusing them with a small amount of the Sin-Eater’s awareness and allowing them to move with a life of their own. Pianos play as if automated, lights flicker to life, and doors fling themselves open or lock tick of their own accord. The animated objects are too clumsy and single minded to directly harm someone in the Boneyard, but in some locations, such as old factories or warehouses just the illusion of life can be hazardous enough to harm an unware trespasser.",
+    "effects": [
+      "The Sin-Eater has perfect awareness of the layout and architectural details of the area they control.",
+      "Characters within the Boneyard cannot hide their presence or location from the Sin-Eater. Supernatural beings attempting to use magic to hid themselves must make a Clash of Wills against the Bound.",
+      "The Sin-Eater may create minor, cosmetic poltergeist effects within the Boneyard, such as flickering lights, slamming doors, or strange sounds as reflexive actions. These effects can’t be used to attack, but if someone sticks their hand into a garbage disposal or industrial press, that can inflict damage.",
+      "The area of the Boneyard gains the Open Condition for all ghosts."
+    ],
+    "resolutions": [
+      "Creator leaving the area of the Boneyard, falling unconsious, or dying.",
+      "Creator is confronted with her geist’s Ban or Bane."
+    ]
+  },
+  {
+    "key": "caul",
+    "name": "Caul",
+    "scope": "condition",
+    "type": "charged",
+    "haunt": "caul",
+    "primary": true,
+    "description": "You have invited your geist inside of yourself, merging flesh and Plasm into one horrific being of malleable, protean flesh controlled by a single gestalt mind.",
+    "effects": [],
+    "resolutions": [
+      "The character dies or is otherwise rendered unconscious.",
+      "The geist is dismissed from their body either willingly or unwillingly.",
+      "The geist suffers a crisis point.",
+      "You are confronted with your geist’s Ban or Bane."
+    ],
+    "chargeDescription": "Caul has a number of charges determined when it is placed upon you. Spend a charge for one of the following effects.",
+    "chargeEffects": [
+      "Gain an exceptional success on three successes instead of five when your viscous body would aid you (e.g. grappling, squeezing through tight spaces, intimidating the living).",
+      "Ignore wound penalties for one turn.",
+      "Substitute one of your geist’s Attributes for yours in the same category for an action. Power may substitute for Strength, Intelligence, or Presence; Finesse for Dexterity, Wits, or Manipulate; and Resistance for Stamina, Resolve, or Composure."
+    ]
+  },
+  {
+    "key": "curse",
+    "name": "Curse",
+    "scope": "condition",
+    "type": "charged",
+    "haunt": "curse",
+    "primary": true,
+    "description": "A Sin-Eater has lain a Curse on you, and the universe is out to get you because of it. Bad luck is out to get you at the best of times.",
+    "effects": [],
+    "resolutions": [
+      "Another Sin-Eater counters the Curse."
+    ],
+    "chargeDescription": "The Curse has a number of charges determined when it is placed upon you. Each charge can inflict the following effect, as a reflexive action by the Sin-Eater who cursed you. Only one effect can be applied per turn.",
+    "chargeEffects": [
+      "Impose a −2 penalty on one roll."
+    ]
+  },
+  {
+    "key": "dirge",
+    "name": "Dirge",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "dirge",
+    "primary": true,
+    "description": "You have been caught by the siren song of a Sin-Eater’s Dirge.",
+    "effects": [
+      "You are compelled to listen to the Sin Eater’s song, and you understand what emotion or action the Dirge is meant to evoke.",
+      "If you act in concert with the intent of the song, you get a +2 bonus on all rolls.",
+      "Acting in opposition to the song’s intent costs 1 Willpower per action.",
+      "This Condition ends (without resolving) when the Sin-Eater stops singing."
+    ],
+    "resolutions": [
+      "You suffer damage or a breaking point.",
+      "A character without the Dirge Condition uses an instant action to shake you out of it.",
+      "You are confronted with the Ban or Bane of the inflicting Sin-Eater’s geist.",
+      "When this Condition resolves, the Sin-Eater who created it also takes a Beat."
+    ]
+  },
+  {
+    "key": "marionette",
+    "name": "Marionette",
+    "scope": "condition",
+    "type": "simple",
+    "soruce": "marionette",
+    "primary": true,
+    "description": "A Sin-Eater has tangled ou with Plasmic strings and can manipulate you according to her whim.",
+    "effects": [
+      "Your actions are under the control of the Sin-Eater who inflicted this Condition on you. Any time the Sin-Eater makes you take an action, you lose your next turn.",
+      "If you are conscious and capable of thought, you may contest puppeteered actions by rolling Strength + Stamina vs. Synergy + Marionette.",
+      "This Condition ends (without resolving) at the end of the scene."
+    ],
+    "resolutions": [
+      "Come into contact with the Ban or Bane of the inflicting Sin-Eater’s geist.",
+      "Suffer lethal damage or a breaking point due to a command given by the Sin-Eater. Inanimate objects (including corpses) ignore this.",
+      "Break line of sight with the Sin-Eater who created this Condition.",
+      "When this Condition resolves, the Sin-Eater who created it also takes a Beat."
+    ]
+  },
+  {
+    "key": "memoria",
+    "name": "Memoria",
+    "scope": "condition",
+    "type": "charged",
+    "haunt": "memoria",
+    "primary": true,
+    "description": "Your character is haunted by visions of the past at every turn. While the Condition persists, the character experiences hallucinations of the past, replaying again and again.",
+    "effects": ["Events in the vision can trigger crisis points or Remembrance scenes as though they were really happening."],
+    "resolutions": [
+      "You are confronted with your geist’s Ban or Bane.",
+      "You fail to intercede in a crisis point caused by the memory."
+    ],
+    "chargeDescription": "Memoria has a number of charges determined when it is placed upon you. Spend a charge for one of the following effects.",
+    "chargeEffects": [
+      "The character gains 8-again on one roll related to investigating the event or working to resolve the unfinished trauma, using the revelation of the past as insight into how to put things right.",
+      "You learn something from the memory that could be used as soft leverage in a Social Maneuver. When you use this leverage, remove one Door in addition to improving the impression level."
+    ]
+  },
+  {
+    "key": "oracle",
+    "name": "Oracle",
+    "scope": "condition",
+    "type": "charged",
+    "haunt": "oracle",
+    "primary": true,
+    "description": "Your body has died – mostly – allowing your ghost to range far and wide and answer questions put to it.",
+    "effects": [
+      "When you gain this Condition, you may specify a number of characters up to your dots in the Oracle who are permitted to ask you questions, or you may allow anyone to ask.",
+      "While you have this Condition, you are insensate and can take no actions except to answer questions asked of you."
+    ],
+    "resolutions": [
+      "You suffer damage.",
+      "You are confronted with your geist’s Ban or Bane."
+    ],
+    "chargeDescription": "This Condition comes into play with a number of charges determined when it is placed upon you. When someone asks you a question from the list below, expend one charge. The Storyteller will answer it truthfully, along with the suggestive imagery that provided the answer",
+    "chargeEffects": [
+      "What here is most touched by death? *Thick, red blood dripping from the hands of a person present. The sound of furious scratching and writing coming from an old journal.*",
+      "What here most feels the Underworld’s pull? *Illusory chains constricting the body of another ghost present. The ancient groaning of a building in Twilight as it begins to collapse under its own weight.*",
+      "Who here will help me get what we desire? *The sound of fluttering bird wings and the cooing of birds around an easy mark. A glowing aura and the sound of church bells around the target.*",
+      "What here is most treasured by someone? *An item glowing or becoming as new before the Sin-Eater’s eyes. Ephemeral chains tying someone present in the room to the object.*",
+      "What here has gone unseen? *The frenzied clawing and screaming from under the floors that follows the Mayor’s son. The untanned line on the ghost’s finger where once a wedding ring rested.*"
+    ]
+  },
+  {
+    "key": "rage",
+    "name": "Rage",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "rage",
+    "primary": true,
+    "description": "Your unnatural fury is released int he form of terrifying spectral weapons conjured by your geist.",
+    "effects": [
+      "Your unarmed attacks gain a weapon damage rating equal to Plasm spent on Vent the Rage. Ghosts suffer lethal damage from these attacks.",
+      "You may substitute your Rage dots for Brawl when making unarmed attacks. If you have no dots in Brawl, you don’t suffer the untrained penalty.",
+      "This Condition ends without resolving at the end of the scene."
+    ],
+    "resolutions": ["You are confronted with your geist’s Ban or Bane."]
+  },
+  {
+    "key": "servant",
+    "name": "Servant",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "marionette",
+    "description": "Your actions are not your own; an engine of Plasm controls your body.",
+    "effects": [
+      "You obey any command the Sin-Eater who controls you gives, but are otherwise free to act and speak as you wish. Corpses and objects with this Condition either repeat their last command indefinitely or stand inert when not being ordered.",
+      "Servants retain their own minds and emotions, if they have any to begin with.",
+      "Servants use their own Attributes and Skills, if applicable, or the Sin-Eater’s Synergy + Marionette for inanimate objects. Corpses use the Physical Attributes and Skills they had in life, but suffer a cumulative –1 penalty to all actions per month since death, and can only be ordered to take Physical actions.",
+      "This Condition ends (without resolving) at the end of the scene."
+    ],
+    "resolutions": [
+      "Suffer lethal damage or a breaking point due to a command given by the Sin-Eater. Inanimate objects (including corpses) ignore this.",
+      "Come into contact with the Ban or Bane of the inflicting Sin-Eater’s geist.",
+      "When this Condition resolves, the Sin-Eater who created it also takes a Beat."
+    ]
+  },
+  {
+    "key": "shroud",
+    "name": "Shroud",
+    "scope": "condition",
+    "type": "charged",
+    "haunt": "shroud",
+    "primary": true,
+    "description": "Wrapped within a cocoon of Plasm and infused with the power of your geist, you become more like a ghost.",
+    "effects": ["You do not need to eat, sleep, or breathe. You cannot be blinded or deafened by non-supernatural means."],
+    "resolutions": [
+      "You are confronted with your geist’s Ban or Bane.",
+      "You do something to draw significant attention to yourself (e.g. attack someone, scream loudly, use another Haunt)."
+    ],
+    "chargeDescription": "This Condition also has a number of charges equal to the Plasm spent when activating the Shroud. Spend one charge for the following effect.",
+    "chargeEffects": [
+      "Enter Twilight for a number of turns equal to your Shroud rating."
+    ]
+  },
+  {
+    "key": "tomb",
+    "name": "Tomb",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "tomb",
+    "primary": true,
+    "description": "Memory and Plasm have woven form out of nothingness, creating a facsimile of what was lost.",
+    "effects": [
+      "The piece or symbolic representation of the object becomes a precise replica of the original at whatever point in its history the Sin-Eater desires. This includes any contaminants, fingerprints, or similar – if the Sin-Eater recreates a knife at the moment it was used in a murder, it has the victim’s actual blood, and possibly the killer’s actual fingerprints on it.",
+      "People or animals created by this Condition appear as freshly deceased corpses at whatever age the Sin-Eater desires.",
+      "Objects created by this Condition are equally tangible to the living and ghosts.",
+      "This Condition ends (without resolving) after a number of days equal to the Sin-Eater’s Tomb dots. The Sin-Eater may extend this duration by spending Plasm equal to the Plasmic object’s Size."
+    ],
+    "resolutions": [
+      "The object comes into contact with the Ban of the creating Sin-Eater’s geist.",
+      "When this Condition resolves, the Sin-Eater who created it also takes a Beat."
+    ]
+  },
+  {
+    "key": "void",
+    "name": "Void",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "void",
+    "primary": true,
+    "description": "You have welcomed a kernel of the Void into yourself, encysted in Plasm, and now you’ve coaxed it to wakefulness and set it loose. You’re surrounded by a void-wake, a halo of ever-expanding darkness. Whatever light there was is fading fast, and you can feel solid objects crumble beneath your fingers. What have you done?",
+    "effects": [
+      "All characters (including the Sin-Eater herself) within the area of effect are Blinded (p. 292).",
+      "The Sin-Eater’s attacks ignore one point of Durability per dot in Void. Other character’s attacks made within the area of effect ignore half that amount, rounded up. Reduce Armor by the relevant amount for each attack."
+    ],
+    "resolutions": [
+      "You’re confronted with your Geist’s Ban or Bane.",
+      "You damage something, or injure someone, important to you."
+    ]
+  },
+  {
+    "key": "void-storm",
+    "name": "Void Storm",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "void",
+    "description": "You’ve awoken a kernel of the Void, and you’ve done it just a little too well. It’s gushing out of you like an arterial wound, and the world around you takes the brunt of this catastrophic leak. Essential energies are snuffed out, and complex machines malfunction almost immediately.",
+    "effects": [
+      "Any source of damage within the area of effect that is energetic in nature (fires, electricity, etc) is reduced by one step in terms of size and/or intensity, whichever is applicable.",
+      "Electrical devices (such as computers, mobile phones, or pacemakers) within the area of effect cease to function. Extended exposure drains batteries dry and may permanently damage the device, at Storyteller discretion."
+    ],
+    "resolutions": ["Inconvenience friends or allies at a pivotal moment."]
+  },
+  {
+    "key": "maw",
+    "name": "Maw",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "void",
+    "description": "You have let too much of the Void free, and not it will claim what it wants: everything. Anything not nailed down is pulled into the horrific black fissures opening across your body, greedily consuming anything touching them and growing as they feed.",
+    "effects": [
+      "**Maw of Infinity:** The Sin-Eater becomes the epicenter of an effect identital to The End of All Things (**Memento Mori**, p. 25), as if she had spent 5 Plasm to invoke it.",
+      "**No Escape:** For every 10 Health, Structure, or Corpus damage Maw of Infinity deals, the Sin-Eater suffers 1 aggravated damage. If she dies as a result, she too is consumed entirely.",
+      "**Take Me with You:** If the Sin-Eater is killed by the Maw, the effects of Maw immediately end."
+    ],
+    "resolutions": ["The Void consume someone or something important to you."]
+  },
+  {
+    "key": "well",
+    "name": "Well",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "well",
+    "primary": true,
+    "description": "The tides of the Ocean of Fragments ebb and flow within you, making you as fluid as one of the ephemeral dead. You trade in Memories as though you were nothing more than Essence, incorporating them into yourself and learning what they have to teach — and changing not a little in the process.",
+    "effects": [
+      "The Sin-Eater may trade for Memories as though she was a ghost. She may hold up to her Synergy in Memories before suffering Memory Bleed (**Geist: The Sin-Eaters**, p. 288).",
+      "Memories traded while this Condition is in effect do not revert when the Condition ends.",
+      "While the Sin-Eater has this Condition, she benefits from Memories Skills associated with any Memories she has, up to her Trait maximum or Plasm spent, whichever is lower. For example, if she has Firearms 1 and a Memory with Firearms 3, she effectively has Firearms 3 after spending 3 Plasm. If she spends 4 Plasm, she will effectively have Firearms 4. If she started with Firearms 3 instead of Firearms 1, she could not increase her Firearms above 5 unless her Synergy was 6 or higher. The Sin-Eater does not benefit from Memory Skills when this Condition is not active.",
+      "While this Condition is in effect, the Sin-Eater has any Persistent Conditions or other effects associated with any Memories she has, whether positive or negative."
+    ],
+    "resolutions": [
+      "You’re confronted with your geist’s Ban or Bane.",
+      "You accept a Memory that triggers a crisis point for your geist."
+    ]
+  },
+  {
+    "key": "fragmented",
+    "name": "Fragmented",
+    "scope": "condition",
+    "type": "simple",
+    "haunt": "well",
+    "description": "You’ve pushed yourself too far, and you’ve lost yourself in a chaotic whorl of possible selves, each just a little different. Your identity bends like wet clay every time you move. You can never be certain, moment to moment, which you is in the driver’s seat, or if they’ll know how to do what you — the you that you are in this moment — started doing.",
+    "effects": ["Every time the Sin-Eater acts, roll a d10 for any Trait she is using and divide by 2, rounding down. The result is her effective Trait for this action only."],
+    "resolutions": ["Grounding yourself in a single moment, either by suffering Wound Penalties or by becoming Obsessed (**Geist: The Sin-Eaters**, p. 302). At Storyteller discretion, other similar methods may also serve this purpose."]
+  }
+]

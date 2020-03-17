@@ -1,0 +1,14 @@
+<div class="m-1 card shadow">
+  <div class="card-header d-flex justify-content-between align-items-center" matRipple (click)="toggleExpand()">
+    <div class="d-flex align-items-center">
+      <h1 class="trinigan">The {{ haunt.name }}</h1>
+    </div>
+  </div>
+  <div *ngIf="expanded || !collapse" class="card-body">
+    <ng-container *ngFor="let rank of haunt.ranks; last as last">
+      <haunt-action *ngIf="rank.type === 'action'" [rank]="rank" [upgradeAction]="action"></haunt-action>
+      <haunt-rank *ngIf="rank.type === 'enhancement'" [rank]="rank" [action]="action"></haunt-rank>
+      <hr *ngIf="!last" />
+    </ng-container>
+  </div>
+</div>

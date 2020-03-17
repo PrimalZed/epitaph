@@ -1,0 +1,22 @@
+<h2 class="trinigan">{{ rank.name }} ({{ rank.dots | dots }})</h2>
+<action *ngIf="rank.type === 'action'" [action]="action"></action>
+<div *ngIf="rank.type === 'enhancement'">
+  <ng-container *ngFor="let enhancement of rank.enhancements">
+    <ng-container *ngIf="enhancement.type !== 'upgrade'">
+      <p *ngFor="let description of enhancement.description | array; first as first">
+        <strong *ngIf="first">{{ enhancement.cost | plasm }}:</strong>
+        <span *ngIf="first">&nbsp;</span>
+        <span [innerHtml]="description | markdown"></span>
+      </p>
+    </ng-container>
+    <ul *ngIf="enhancement.effects">
+      <li *ngFor="let effect of enhancement.effects" [innerHtml]="effect | markdown"></li>
+    </ul>
+    <p *ngIf="enhancement.limit">This Enhancement may be applied to a limit of {{enhancement.limit}}.</p>
+    <p *ngIf="enhancement.listLabel"><strong>{{ enhancement.listLabel }}</strong></p>
+    <ul *ngIf="enhancement.listItems">
+      <li *ngFor="let listItem of enhancement.listItems" [innerHtml]="listItem | markdown"></li>
+    </ul>
+    <epitaph-table *ngIf="enhancement.table" [table]="enhancement.table"></epitaph-table>
+  </ng-container>
+</div>

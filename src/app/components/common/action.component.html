@@ -1,0 +1,16 @@
+<div>
+  <p *ngIf="action.requirement"><strong>Requirement:</strong> {{ action.requirement }}</p>
+  <p><strong>Cost:</strong> {{ action.cost | plasm}}</p>
+  <p><strong>Action:</strong> {{ action.time | titlecase }}</p>
+  <p *ngIf="action.subject"><strong>Subject:</strong> {{ action.subject }}</p>
+  <p><strong>Dice Pool:</strong> {{ action.pool[0] }} + {{ action.pool[1] }}</p>
+  <p *ngIf="action.type === 'resisted'"><strong>Resisted By:</strong> {{ action.resisted }}</p>
+  <p *ngIf="action.type === 'contested'"><strong>Contested By:</strong> {{ action.contested[0] }} + {{ action.contested[1] }}</p>
+  <epitaph-table *ngIf="action.table" [table]="action.table"></epitaph-table>
+  <h5 class="text-primary">Roll Results</h5>
+  <p><strong>Success:</strong> {{ action.success }}</p>
+  <p *ngIf="action.chargesPerPlasm">The Condition has {{ action.chargesPerPlasm }} charge{{ action.chargesPerPlasm === 1 ? '' : 's' }} per Plasm spent.</p>
+  <p><strong>Exceptional:</strong> {{ action.exceptional }}</p>
+  <p><strong>Failure:</strong> {{ action.failure }}</p>
+  <p><strong>Dramatic:</strong> {{ action.dramatic }}</p>
+</div>

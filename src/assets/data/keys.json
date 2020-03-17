@@ -1,0 +1,128 @@
+[
+  {
+    "key": "beasts",
+    "name": "Key of Beasts",
+    "shortName": "Beasts",
+    "appellations": [
+      "Primeval Key",
+      "Key of Tooth and Claw",
+      "Key of Verdant Savagery"
+    ],
+    "description": "The Primeval Key is the feeling of adrenaline coursing through the veins. It is the discharge of the sympathetic nervous system at the feeling of teeth or hooves or horns entering the body. This is the Key of whatever it takes to be safe, to escape, to eat, to breed, to have one more day. The Primeval Key opens when humanity is reminded they are just part fo the game of life and they don't always get to win it.",
+    "attribute": "Wits",
+    "resonance": "The Key of Beasts is resonant when called upon in a place where humanity is no longer the dominant force: abandoned buildings inhabited by nothing but its rats and roaches, untrammeled wilderness, or city parks after dark, for instance. Additionally, using a Haunt on an animal target always counts as resonant.",
+    "doom": "Automatically fail an action targeting an animal, or any action an animal could plausibly hinder (e.g. a barking dog could foil a Stealth action) to resolve this Doom."
+  },
+  {
+    "key": "blood",
+    "name": "Key of Blood",
+    "shortName": "Blood",
+    "appellations": [
+      "Stigmatic Key",
+      "Key of Veils and Shades",
+      "Key of Crimson Agony"
+    ],
+    "description": "Turning the Key of Blood is the numb feeling of chambering one last round, only to feel the hornet sting at the back of your skull. It is the knife sliding home between that drunken bastard's ribs like a bird coming home to roost. The Stigmatic Key is the memory of passion and the lives lost because of that passion. Not all deaths that fall under the Key's dominion are premeditated: a crazy scheme, a malicious rumor, or an irritated phone call may have never meant to kill somebody, but the tumblers of the lock turn nonetheless and the gate opens.",
+    "attribute": "Presence",
+    "resonance": "When situations spiral out of control the Key of Blood is at its strongest. If the Bound finds himself in a violent situation that wasn't premeditated or intended, the resonance of the Key applies.",
+    "doom": "The next time the character tries to avoid a violent confrontation, whether by de-escalating a situation, running away, or some other means, she suffers an automatic dramatic failure and resolves this Doom (taking a Beat from the dramatic failure as well as the resolution)."
+  },
+  {
+    "key": "chance",
+    "name": "Key of Chance",
+    "shortName": "Chance",
+    "appellations": [
+      "Bastard's Key",
+      "Key of Jinx and Hex",
+      "Key of Black Humor"
+    ],
+    "description": "Who knew the weather would turn like that? I guess you're really not supposed to operate those on a ladder? It turns you really have to be that tall to ride. The Key of Chance is the call and response of \"hey ya'll, watch this\" and the million to one death that follows. That is the Key of the absurd, unfair, and improbable. When expectations fail, when the tools of civilization turn on you, when probability turns a blind eye, when rumors becomes truth — those are when the lock comes undone.",
+    "attribute": "Dexterity",
+    "resonance": "The Key of Chance is resonant when the Bound is risking something important, like a treasured belonging, a friend, or her life on a single action. It also has Resonance when the subject of the Haunt is a machine with at least three moving parts capable of inflicting lethal damage (e.g. a gun, an industrial press, a wood chipper, etc.).",
+    "doom": "The next time your character makes a roll with a +3 or greater bonus, roll a chance die for that action instead and resolve this Doom. If the action succeeds, it counts as an exceptional success."
+  },
+  {
+    "key": "cold-wind",
+    "name": "Key of Cold Wind",
+    "shortName": "Cold Wind",
+    "appellations": [
+      "Breathless Key",
+      "Key of Gale and Garrote",
+      "Key of Ivory Sorrow"
+    ],
+    "description": "Exposure and execution: these are the deaths that feed the Breathless Key. They are deaths of things lost to the formless and ephemeral, robbed of a simple breath of air. To turn the Key is to hear the breathless whispers of prisoners with the noose around their necks and the roar of tempests that wiped villages from the face of the living world. It is the cold whispers of your community as they turn their backs on you, the loneliness that comes from being a pariah.",
+    "attribute": "Resolve",
+    "resonance": "The Key of Cold Wind is resonant when the Bound is within an Environmental Tilt like Blizzard, Extreme Cold, or Heavy Winds. Additionally, if the Bound is in a setting where ambient noise makes it impossible to have a spoken conversation, the Key has resonance.",
+    "doom": "The character gains the Extreme Cold Tilt (p. 294) that lasts, in spite of other environmental conditions, for (10 - Synergy) hours or until the character actively reveals a damaging personal secret. When the Tilt ends, resolve this Doom."
+  },
+  {
+    "key": "deep-waters",
+    "name": "Key of Deep Waters",
+    "shortName": "Deep Waters",
+    "appellations": [
+      "Tear-Stained Key",
+      "Key of Wave and Whirlpool",
+      "Key of Azure Futility"
+    ],
+    "description": "The feeling of turning the Tear-Stained Key is, ironically, the sensation of air leaving the lungs, not water entering them.It is the experience of loss as cool, uncaring waters drives the last vestiges of consciousness from the body. It is the emptiness that extinguishes sorrow, fear, and hope alike.",
+    "attribute": "Manipulation",
+    "resonance": "The Key of Deep Waters is resonant when the Bound is in an environment where breathing is impaired: a carbon-dioxide-filled garage, an industrial farm feedlot, or submerged in water, for example. Additionally, if the target of a Haunt is at least half submerged in water, the Key has resonance.",
+    "doom": "The next time your character would fully replenish her Willpower, gain only 1 Willpower and resolve this Doom."
+  },
+  {
+    "key": "disease",
+    "name": "Key of Disease",
+    "shortName": "Disease",
+    "appellations": [
+      "Wasting Key",
+      "Key of Plague and Pestilence",
+      "Key of Bilious Despair"
+    ],
+    "description": "No turn of the Wasting Key is quite like the last. Every user has experienced the burning fevers and the clogged airways that marked so many childhood illnesses, but everyone has a story to tell. Some talk of the invisible pains of archaic poisons used by ancient alchemists, or phantom bleeds from bacterial species that have been extinct longer than penicillin has been cultivated. Yet just as many Bound have felt the pains of diseases all too common today, of growths measured in metaphor and hacking coughs. The deaths of people that didn't quite get better, that couldn't catch it early enough, who were just a little too unlucky.",
+    "attribute": "Stamina",
+    "resonance": "The Key of Disease is resonant if it is used in a place or on a target that resonates with illness or poison, such as a hospital, malarial swamp, or a person suffering from the Sick Tilt.",
+    "doom": "Your character suffers the Sick Tilt until the end of the next scene. When the Sick Tilt ends, resolve this Doom."
+  },
+  {
+    "key": "grave-dirt",
+    "name": "Key of Grave Dirt",
+    "shortName": "Grave Dirt",
+    "appellations": [
+      "Crushing Key",
+      "Key of Stone and Barrow",
+      "Key of Slate Bereavement"
+    ],
+    "description": "All things must die. Yet humanity struggles on, forever trying to leave a reminder of itself on the planet. The Key of Stone and Barrow it the jealous owner of all who perish in that task. Those who are buried in kingly tombs and crushed by heavy girders. The ones left stranded in the bottom of empty mine shafts and trapped in the decrepit monuments of yesteryear. Nothing is created without spending something: time, resources, lives. The Crushing Key keeps them all, a small payment for the immortality of another.",
+    "attribute": "Strength",
+    "resonance": "The Key of Grave Dirt is resonant when the Bound unlocks a Haunt in a place, or on a target, dedicated to the past: a graveyard or memorial, of course, but also something as prosaic as an abandoned building or an antiquated business such as a VHS repair store. Additionally, any time the character is below ground, the Key of Grave Dirt is resonant.",
+    "doom": "For the rest of the story, any time the character wishes to roll and extended action (p. 147), she must spend 1 Willpower. She may resolve this Doom by sacrificing a living being in the name of accomplishing her goal."
+  },
+  {
+    "key": "pyre-flame",
+    "name": "Key of Pyre Flame",
+    "shortName": "Pyre Flame",
+    "appellations": [
+      "Burning Key",
+      "Key of Ash and Brand",
+      "Key of Golden Annihilation"
+    ],
+    "description": "To unlock the Burning Key is to understand being consumed, to feel the skin peel and run while the lungs fill with hot particulates that burn, then cool. A fire does not begin from nothing, though. They are created, fed, encouraged to cook, to warm, to protect. Yet those reasons may change as the flame is fueled and stoked. Maybe it was for the money? For beauty? For revenge? For love? The flame is an apathetic medium though — all it knows is how to consume and how to spread.",
+    "attribute": "Intelligence",
+    "resonance": "The Pyre Flame Key is resonant when it's used in an area, or on a target, that is on fire or subject to the Extreme Heat Tilt.",
+    "doom": "The character gains the Extreme Heat Tilt (p. 294) that lasts, in spite of other environmental conditions, for (10 - Synergy) hours or until the character deliberately destroys a valued personal possession. \"Valued\" can refer to monetary value or personal significance. When the Tilt ends, resolve this Doom."
+  },
+  {
+    "key": "stillness",
+    "name": "Key of Stillness",
+    "shortName": "Stillness",
+    "appellations": [
+      "Silent Key",
+      "Key of Shroud and Shadow",
+      "Key of Jet Uncertainty"
+    ],
+    "description": "Deaths under the Silent Key are those punctuated with the statement \"I didn't know,\" or \"It's such a shame,\" if they're discovered at all. They are the deaths of ignorance, powerlessness, and apathy of individuals who were treated like ghosts long before they ever drew their last breath. They are deaths caused by a valve being turned off, a zero being shuffled off of a budget, or talking on the phone being just a little too much of a hassle.",
+    "attribute": "Composure",
+    "resonance": "The Key of Stillness is resonant when the target of a Haunt is unaware of the Bound's presence, helpless, or if there is no one present in the scene except the Bound and the target.",
+    "doom": "The next time your character speaks even a single word, resolve this Doom and the Condition from the Haunt she unlocked with the Key of Stillness. If she unlocked the Key without a Haunt, she instead gainst the Mute Condition until the end of the chapter; when that Condition ends, resolve this Doom."
+  }
+]

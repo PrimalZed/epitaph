@@ -1,0 +1,7 @@
+<!--Empty div to allow scroll beyond the floating button-->
+<div class="p-5"></div>
+<div class="fixed-bottom w-100 p-3 d-flex justify-content-center justify-content-md-end">
+  <button class="btn btn-primary rounded-pill shadow" matRipple [disabled]="disabled" (click)="action()">
+    <ng-content></ng-content>
+  </button>
+</div>

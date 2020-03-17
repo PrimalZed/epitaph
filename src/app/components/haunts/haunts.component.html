@@ -1,0 +1,4 @@
+<ng-container *ngFor="let haunt of haunts$ | async; last as last">
+  <haunt-card [haunt]="haunt"></haunt-card>
+  <hr *ngIf="!last" />
+</ng-container>

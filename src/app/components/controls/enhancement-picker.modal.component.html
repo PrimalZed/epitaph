@@ -1,0 +1,17 @@
+<div *ngFor="let rank of ranks$ | async">
+  <h5>{{ rank.name }} ({{ rank.dots | dots }})</h5>
+  <div *ngFor="let enhancement of rank.enhancements" class="list-group">
+    <ng-container *ngIf="enhancement.type === 'persistent' || enhancement.type === 'charge-effect'">
+      <button class="list-group-item list-group-item-action" (click)="select(enhancement)">
+        <p *ngFor="let description of enhancement.description | array; first as first">
+          <strong *ngIf="first">{{ enhancement.cost | plasm }}:</strong>
+          <span *ngIf="first">&nbsp;</span>
+          <span [innerHtml]="description | markdown"></span>
+        </p>
+        <ul *ngIf="enhancement.effects">
+          <li *ngFor="let effect of enhancement.effects" [innerHtml]="effect | markdown"></li>
+        </ul>
+      </button>
+    </ng-container>
+  </div>
+</div>

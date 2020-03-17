@@ -1,0 +1,10 @@
+<form (submit)="submit(name)">
+  <div class="modal-body">
+    <label>Chronicle Name</label>
+    <input class="form-control" name="name" [(ngModel)]="name" palceholder="Chronicle Name">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="dismiss()">CANCEL</button>
+    <button type="submit" class="btn text-primary">OK</button>
+  </div>
+</form>

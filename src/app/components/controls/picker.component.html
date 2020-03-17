@@ -1,0 +1,8 @@
+<div class="input-group">
+  <input class="form-control" [ngModel]="value?.name" [ngModelOptions]="{ standalone: true }" readonly>
+  <div class="input-group-append">
+    <button class="btn btn-outline-primary" type="button" matRipple [disabled]="disabled" (click)="open()">
+      <fa-icon [icon]="['fas', icon]"></fa-icon>
+    </button>
+  </div>
+</div>

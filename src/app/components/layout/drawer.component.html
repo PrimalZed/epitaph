@@ -1,0 +1,14 @@
+<div class="drawer-backdrop" (click)="close()"></div>
+<div class="drawer">
+  <div class="dropdown-menu">
+    <button class="dropdown-item" type="button" matRipple (click)="new()">
+      New
+    </button>
+    <button class="dropdown-item" type="button" matRipple (click)="goToLoad()">
+      Load
+    </button>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" [ngClass]="{ 'active': conditionsActive$ | async }" [routerLink]="['/conditions']">Conditions</a>
+    <a class="dropdown-item" [ngClass]="{ 'active': hauntsActive$ | async }" [routerLink]="['/haunts']">Haunts</a>
+  </div>  
+</div>
