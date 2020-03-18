@@ -116,8 +116,7 @@ const appRoutes: Routes = [
   providers: [
     { provide: APP_INITIALIZER, useFactory: (dataService: DataService) => () => dataService.initialize(), deps: [DataService], multi: true },
     { provide: APP_INITIALIZER, useFactory: (iconsService: IconsService) => () => iconsService.initialize(), deps: [IconsService], multi: true },
-    { provide: APP_INITIALIZER, useFactory: (saveService: SaveService) => () => saveService.load(), deps: [SaveService], multi: true },
-    { provide: APP_INITIALIZER, useFactory: (rtcReceiverService: RTCReceiverService) => () => rtcReceiverService.createAnswer(window.location.href), deps: [RTCReceiverService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: (saveService: SaveService) => () => saveService.load(), deps: [SaveService], multi: true }
   ],
   bootstrap: [AppComponent]
 })
