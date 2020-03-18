@@ -1,5 +1,4 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Store, select } from "@ngrx/store";
 import { 
   DBSchema,
@@ -39,7 +38,7 @@ type StoreName =
   providedIn: "root"
 })
 export class SaveService implements OnDestroy {
-  private dbPromise = openDB<SavesDbSchema>("saves", 1, { upgrade: this.upgrade });
+  private dbPromise = openDB<SavesDbSchema>("epitaph-saves", 1, { upgrade: this.upgrade });
 
   private saveSubject: Subject<void> = new Subject();
   private save$ = this.saveSubject
