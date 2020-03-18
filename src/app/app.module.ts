@@ -103,7 +103,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     MaterialModule,
     NgbModalModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production }),
     StoreModule.forRoot<AppState, Action>({
       conditionSpecs: conditionSpecsReducer,
