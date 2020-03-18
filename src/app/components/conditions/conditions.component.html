@@ -2,6 +2,7 @@
   <condition-card [condition]="condition" (toggle)="toggleExpand(condition.id)"></condition-card>
   <hr *ngIf="!last" />
 </ng-container>
+<h3 *ngIf="!(conditionsCount$ | async)" class="w-100 text-center">Click on the + below to add a Condition.</h3>
 <action-button (action)="addCondition()">
   <fa-icon [icon]="['fas', 'plus']"></fa-icon>
 </action-button>

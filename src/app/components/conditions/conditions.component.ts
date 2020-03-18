@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { combineLatest, map, scan } from "rxjs/operators";
 import { AppState } from "store/app-state";
 import { Condition } from "store/conditions/condition";
-import { selectAllConditions } from "store/conditions/conditions.selectors";
+import { selectAllConditions, selectTotalConditions } from "store/conditions/conditions.selectors";
 
 @Component({
   selector: "conditions",
@@ -35,6 +35,8 @@ export class ConditionsComponent {
       combineLatest(this.expandConditionIds$),
       map(([conditions, expandConditionIds]) => conditions.map((condition) => ({ ...condition, expanded: expandConditionIds.includes(condition.id) })))
     );
+
+  public conditionsCount$ = this.store.pipe(select(selectTotalConditions));
   
   constructor(
     private store: Store<AppState>,
