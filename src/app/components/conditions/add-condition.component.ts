@@ -26,7 +26,7 @@ export class AddConditionComponent {
     subject: null,
     createdBy: null,
     key: null,
-    activationPlasm: 1,
+    activationPlasm: null,
     charges: null
   }
 
