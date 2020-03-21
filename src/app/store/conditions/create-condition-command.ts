@@ -4,6 +4,7 @@ export interface CreateSimpleConditionCommand {
   createdBy: string;
   keyKey?: string;
   activationPlasm: number;
+  exceptionalSuccess: boolean;
   enhancementKeys?: string[];
   addedCustomEffects?: string[];
 }

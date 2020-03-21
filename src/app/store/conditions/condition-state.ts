@@ -3,6 +3,7 @@ export interface SimpleConditionState {
   specKey: string;
   subject: string;
   createdBy: string;
+  exceptionalSuccess: boolean;
   keyKey?: string;
   activationPlasm: number;
   enhancementKeys: string[];

@@ -14,6 +14,7 @@ interface FormModel {
   key: Key;
   activationPlasm: number;
   charges: number;
+  exceptionalSuccess: boolean;
 }
 
 @Component({
@@ -27,7 +28,8 @@ export class AddConditionComponent {
     createdBy: null,
     key: null,
     activationPlasm: null,
-    charges: null
+    charges: null,
+    exceptionalSuccess: false
   }
 
   public submitting: boolean;
@@ -47,7 +49,8 @@ export class AddConditionComponent {
           subject: formModel.subject,
           createdBy: formModel.createdBy,
           keyKey: formModel.key && formModel.key.key,
-          activationPlasm: formModel.activationPlasm
+          activationPlasm: formModel.activationPlasm,
+          exceptionalSuccess: formModel.exceptionalSuccess
         };
         break;
       case "charged":
@@ -57,7 +60,8 @@ export class AddConditionComponent {
           createdBy: formModel.createdBy,
           keyKey: formModel.key && formModel.key.key,
           activationPlasm: formModel.activationPlasm,
-          charges: formModel.charges
+          charges: formModel.charges,
+          exceptionalSuccess: formModel.exceptionalSuccess
         };
     }
     
