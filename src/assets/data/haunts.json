@@ -236,7 +236,7 @@
         "cost": 2,
         "type": "charge-effect",
         "description": "Add the following effect to the options available from the Curse Condition.",
-        "effects": ["The victim suffers 3 poitns of lethal damage, then the Curse condition resolves."]
+        "effects": ["The victim suffers 3 points of lethal damage, then the Curse condition resolves."]
       }, {
         "key": "3-3",
         "cost": 2,
