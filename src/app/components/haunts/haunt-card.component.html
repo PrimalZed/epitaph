@@ -4,7 +4,7 @@
       <h1 class="trinigan">The {{ haunt.name }}</h1>
     </div>
   </div>
-  <div *ngIf="expanded || !collapse" class="card-body">
+  <div *ngIf="expanded || !collapsible" class="card-body">
     <ng-container *ngFor="let rank of haunt.ranks; last as last">
       <haunt-action *ngIf="rank.type === 'action'" [rank]="rank" [upgradeAction]="action"></haunt-action>
       <haunt-rank *ngIf="rank.type === 'enhancement'" [rank]="rank" [action]="action"></haunt-rank>

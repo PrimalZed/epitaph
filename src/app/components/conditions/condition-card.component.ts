@@ -3,6 +3,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Store } from "@ngrx/store";
 import { EnhancementPickerModalComponent } from "components/controls/enhancement-picker.modal.component";
 import { HauntModalComponent } from "components/haunts/haunt.modal.component";
+import { KeyModalComponent } from "components/keys/key.modal.component";
 import { AppState } from "store/app-state";
 import { Condition } from "store/conditions/condition";
 import { removeCondition, decrementConditionCharge, addConditionEffect } from "store/conditions/conditions.actions";
@@ -30,6 +31,12 @@ export class ConditionCardComponent {
     const modalRef = this.modalService.open(HauntModalComponent, { size: "lg" });
 
     modalRef.componentInstance.key = hauntKey;
+  }
+
+  viewKey(keyKey: string) {
+    const modalRef = this.modalService.open(KeyModalComponent);
+
+    modalRef.componentInstance.key = keyKey;
   }
 
   consumeCharge(conditionId: number) {

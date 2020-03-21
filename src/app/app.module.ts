@@ -27,6 +27,9 @@ import { HauntCardComponent } from "components/haunts/haunt-card.component";
 import { HauntModalComponent } from "components/haunts/haunt.modal.component";
 import { HauntRankComponent } from "components/haunts/haunt-rank.component";
 import { HauntsComponent } from "components/haunts/haunts.components";
+import { KeyCardComponent } from "components/keys/key-card.component";
+import { KeyModalComponent } from "components/keys/key.modal.component";
+import { KeysComponent } from "components/keys/keys.component";
 import { DrawerComponent } from "components/layout/drawer.component";
 import { SaveNameComponent } from "components/system/save-name.component";
 import { LoadComponent } from "components/system/load.component";
@@ -35,6 +38,7 @@ import { environment } from "environments/environment";
 
 import { ArrayPipe } from "pipes/array.pipe";
 import { DotsPipe } from "pipes/dots.pipe";
+import { JoinPipe } from "pipes/join.pipe";
 import { MarkdownPipe } from "pipes/markdown.pipe";
 import { PlasmPipe } from "pipes/plasm.pipe";
 
@@ -63,7 +67,8 @@ const appRoutes: Routes = [
     ],
     data: { activeNavigation: "conditions" }
   },
-  { path: "haunts", component: HauntsComponent, data: { activeNavigation: "haunts" } }
+  { path: "haunts", component: HauntsComponent, data: { activeNavigation: "haunts" } },
+  { path: "keys", component: KeysComponent, data: { activeNavigation: "keys" } }
 ];
 
 @NgModule({
@@ -85,13 +90,17 @@ const appRoutes: Routes = [
     HauntRankComponent,
     HauntsComponent,
     LoadComponent,
+    KeyCardComponent,
     KeyPickerComponent,
     KeyPickerModalComponent,
+    KeyModalComponent,
+    KeysComponent,
     SaveNameComponent,
     TableComponent,
 
     ArrayPipe,
     DotsPipe,
+    JoinPipe,
     MarkdownPipe,
     PlasmPipe
   ],

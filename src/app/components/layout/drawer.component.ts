@@ -17,6 +17,7 @@ export class DrawerComponent implements OnDestroy {
 
   public conditionsActive$ = this.checkActiveNavigation("conditions");
   public hauntsActive$ = this.checkActiveNavigation("haunts");
+  public keysActive$ = this.checkActiveNavigation("keys");
 
   constructor(
     private renderer: Renderer2,

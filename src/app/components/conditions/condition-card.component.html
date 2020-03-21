@@ -54,6 +54,7 @@
   </div>
   <div *ngIf="condition.primary" class="card-footer">
     <button class="btn text-primary" matRipple (click)="viewHaunt(condition.haunt)">View Haunt</button>
+    <button *ngIf="condition.unlockedKey" class="btn text-primary" matRipple (click)="viewKey(condition.unlockedKey.key)">View Key</button>
     <button *ngIf="condition.type === 'charged'" class="btn text-primary" matRipple (click)="consumeCharge(condition.id)">Consume Charge</button>
     <button class="btn text-primary" matRipple (click)="addEnhancement(condition.id, condition.haunt)">Add Enhancement Effects</button>
   </div>

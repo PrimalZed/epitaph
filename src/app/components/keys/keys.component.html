@@ -1,0 +1,4 @@
+<ng-container *ngFor="let key of keys$ | async; last as last">
+  <key-card [key]="key"></key-card>
+  <hr *ngIf="!last" />
+</ng-container>

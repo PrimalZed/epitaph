@@ -17,7 +17,7 @@ export class HauntCardComponent {
     this.action = this.updateAction(this.haunt);
   }
 
-  @Input() collapse = true;
+  @Input() collapsible = true;
 
   expanded: boolean = false;
 
