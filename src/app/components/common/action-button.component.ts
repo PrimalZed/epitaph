@@ -4,7 +4,8 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
   selector: "action-button",
   templateUrl: "./action-button.component.html",
   styles: [
-    ".action-button-container { position: fixed; bottom: 0; }"
+    ".fixed-bottom { pointer-events: none; }",
+    "button { pointer-events: all; }"
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
