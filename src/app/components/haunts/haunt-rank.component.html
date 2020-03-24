@@ -1,6 +1,6 @@
 <h2 class="trinigan">{{ rank.name }} ({{ rank.dots | dots }})</h2>
 <action *ngIf="rank.type === 'action'" [action]="action"></action>
-<div *ngIf="rank.type === 'enhancement'">
+<div>
   <ng-container *ngFor="let enhancement of rank.enhancements">
     <ng-container *ngIf="enhancement.type !== 'upgrade'">
       <p *ngFor="let description of enhancement.description | array; first as first">

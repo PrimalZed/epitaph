@@ -6,6 +6,10 @@ export class PlasmPipe implements PipeTransform {
     if (cost === 0) {
       return "Free";
     }
+
+    if (cost === "Exceptional Success") {
+      return cost;
+    }
     
     if (typeof cost === "number" || typeof cost === "string") {
       return `${cost} Plasm`;

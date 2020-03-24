@@ -35,8 +35,7 @@ export const selectConditionEntities = createSelector(
         const key = state.keyKey && keyEntities[state.keyKey];
         const haunt = hauntEntities[spec.haunt];
         const enhancements = haunt.ranks
-          .filter((rank) => rank.type === "enhancement")
-          .reduce<{ description: string | string[], effects?: string[], table?: Table }[]>((all, rank: EnhancementHauntRank) => {
+          .reduce<{ name: string, dots: number, entries: { description: string | string[], effects?: string[], table?: Table }[] }[]>((all, rank: EnhancementHauntRank) => {
             const persistentEnhancements = rank.enhancements
               .filter((enhancement) => enhancement.type === "persistent")
               .filter((enhancement) => state.enhancementKeys.includes(enhancement.key))
@@ -46,7 +45,15 @@ export const selectConditionEntities = createSelector(
                 table: enhancement.table 
               }));
 
-            return [...all, ...persistentEnhancements];
+            if (persistentEnhancements.length) {
+              all.push({
+                name: rank.name,
+                dots: rank.dots,
+                entries: persistentEnhancements
+              });
+            }
+
+            return all;
           }, []);
 
         let condition: Condition = {
@@ -57,19 +64,27 @@ export const selectConditionEntities = createSelector(
         };
 
         if (condition.type === "charged") {
-          const enhancementChargeEffects = haunt.ranks
+          const chargeEnhancements = haunt.ranks
             .filter((rank) => rank.type === "enhancement")
-            .reduce<string[]>((all, rank: EnhancementHauntRank) => {
-              const persistentEnhancements = rank.enhancements
+            .reduce<{ name: string, dots: number, effects: string[] }[]>((all, rank: EnhancementHauntRank) => {
+              const effects = rank.enhancements
                 .filter((enhancement) => enhancement.type === "charge-effect")
                 .filter((enhancement) => state.enhancementKeys.includes(enhancement.key))
                 .map((enhancement: ChargeEffectHauntEnhancement) => enhancement.effects)
                 .reduce((allEffects, enhancementEffects) => allEffects.concat(enhancementEffects), []);
 
-              return [...all, ...persistentEnhancements];
+              if (effects.length) {
+                all.push({
+                  name: rank.name,
+                  dots: rank.dots,
+                  effects: effects
+                });
+              }
+
+              return all;
             }, []);
 
-          condition.enhancementChargeEffects = enhancementChargeEffects;
+          condition.chargeEnhancements = chargeEnhancements;
         }
 
         return {

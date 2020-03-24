@@ -23,7 +23,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Raise the Boneyard.",
         "failure": "The Sin-Eater fails to establish their domain.",
         "dramatic": "The Sin-Eater invests too much of themselves within the Boneyard and binds themselves to it.  They gain the Lost Condition (p. 301) for the rest of the chapter whenever navigating anywhere but back to the place they tried to create the Boneyard."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Raise the Boneyard."
+      }]
     }, { 
       "dots": 2,
       "name": "Eyes in the Paintings",
@@ -104,7 +110,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Extrude the Caul.",
         "failure": "The Sin-Eater fails to entice the geist into her body.",
         "dramatic": "The merging of Plasm and flesh goes horrifically wrong as bodies distort and fail to come together. The geist pulls away, trapping the Sin-Eater in Twilight for the duration of the scene."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Extrude the Caul."
+      }]
     }, {
       "dots": 2,
       "name": "Cold Flesh",
@@ -202,7 +214,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Lay the Curse.",
         "failure": "The Curse does not manifest.",
         "dramatic": "The Bound leaves a trace of Plasm on the victim, but not in the way he intended. The victim regains a point of Willpower; the Sin-Eater suffers the effects of the Curse until the end of the scene."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Lay the Curse."
+      }]
     }, {
       "dots": 2,
       "name": "Gremlin",
@@ -306,7 +324,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Sing the Dirge.",
         "failure": "The target is no more touched by the Sin-Eater’s music than they are by elevator Muzak.",
         "dramatic": "The listener isn’t moved by the song in the slightest and becomes unreceptive to the Sin-Eater’s power. The Bound takes a -3 penalty to using the Dirge on the target for the rest of the story."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Sing the Dirge."
+      }]
     }, {
       "dots": 2,
       "name": "Paean",
@@ -393,7 +417,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on String the Marionette.",
         "failure": "Tendrils of Plasm fail to take hold.",
         "dramatic": "The tendrils of Plasm latch on to the target, but tear off, leaving a thick layer of ectoplasmic slime behind. For the rest of the story, attempts to use the Marionette on the same target fail automatically."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on String the Marionette."
+      }]
     }, {
       "dots": 2,
       "name": "Swarm",
@@ -472,7 +502,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Recall the Memoria.",
         "failure": "The Bound gains no insight into the past they didn’t already know.",
         "dramatic": "The Sin-Eater becomes trapped in the vision, unable to interact with the real world."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Recall the Memoria."
+      }]
     }, {
       "dots": 2,
       "name": "Dénouement",
@@ -557,7 +593,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Consult the Oracle",
         "failure": "The Sin-Eater comes out of his trance unharmed and unfortunately alive. The Oracle is not activated",
         "dramatic": "The Bound’s spirit breaks free of the Plasmic bonds taht connect it to his body and becomes lost. The Sin-Eater gains te Dead Condition."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Consult the Oracle."
+      }]
     }, {
       "dots": 2,
       "name": "Wandering Shade",
@@ -648,7 +690,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Vent the Rage.",
         "failure": "The Plasm coalesces around the Sin-Eater’s body but does not solidify.",
         "dramatic": "The Plasm running through the Sin-Eater’s body tears out of her skin, shredding her flesh. The Sin-Eater suffers one point of lethal damage, plus another for each Enhancement she applied. These injuries cannot be downgraded with Plasm."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Vent the Rage."
+      }]
     }, {
       "dots": 2,
       "name": "Black-Iron Blade",
@@ -719,7 +767,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Don the Shroud.",
         "failure": "Plasm fails to coalesce around the Sin-Eater.",
         "dramatic": "The coating of Plasm seals the Sin-Eater’s face, leaving him unable to see, hear, or even breathe. He will suffocate unless he takes an instant action to clear the ooze from his airway."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Don the Shroud."
+      }]
     }, {
       "dots": 2,
       "name": "Vision of Mist",
@@ -802,7 +856,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Open the Tomb.",
         "failure": "Plasm fails to coalesce.",
         "dramatic": "The Sin-Eater’s memories grow clouded as she struggles to differentiate what is and what was. She can remember faces, but has no idea to whom they belong; she remembers an address but has no idea that it’s her home. She suffers the Addled"
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Open the Tomb."
+      }]
     }, {
       "dots": 2,
       "name": "Headstone",
@@ -901,7 +961,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Awaken the Void.",
         "failure": "The Sin-Eater gains the Void Condition and the Void Storm Condition.",
         "dramatic": "The Sin-Eater gains the Void Condition and the Maw Condition."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Awaken the Void."
+      }]
     }, {
       "dots": 2,
       "name": "Annihilation of Form",
@@ -982,7 +1048,13 @@
         "exceptional": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Submerge the Self.",
         "failure": "The Sin-Eater remains stubbornly solid.",
         "dramatic": "The Sin-Eater’s identity becomes almost uncontrollably fluid. She gains the Fragmented Condition."
-      }
+      },
+      "enhancements": [{
+        "key": "1-1",
+        "cost": "Exceptional Success",
+        "type": "persistent",
+        "description": "When the Haunt ends without resolving, the Sin-Eater regains half the Plasm spent on Submerge the Well."
+      }]
     }, {
       "dots": 2,
       "name": "Awash in Unknown Tides",

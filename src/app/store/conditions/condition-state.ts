@@ -3,17 +3,16 @@ export interface SimpleConditionState {
   specKey: string;
   subject: string;
   createdBy: string;
-  exceptionalSuccess: boolean;
   keyKey?: string;
   activationPlasm: number;
   enhancementKeys: string[];
-  addedCustomEffects?: string[];
+  customEffects?: string[];
 }
 
 export interface ChargedConditionState extends SimpleConditionState {
   charges: number;
   addedChargeEffectKeys: string[];
-  addedCustomChargeEffects?: string[];
+  customChargeEffects?: string[];
 }
 
 export type ConditionState =

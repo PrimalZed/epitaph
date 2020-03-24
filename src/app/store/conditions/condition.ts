@@ -6,16 +6,24 @@ import { SimpleConditionState, ChargedConditionState } from "./condition-state";
 export interface BaseConditionDerivation {
   unlockedKey: Key;
   enhancements: {
-    description: string | string[];
-    effects?: string[];
-    table?: Table
+    name: string;
+    dots: number;
+    entries: {
+      description: string | string[];
+      effects?: string[];
+      table?: Table;
+    }[];
   }[];
 }
 
 export type SimpleCondition = SimpleConditionSpec & SimpleConditionState;
 
 export type ChargedCondition = ChargedConditionSpec & ChargedConditionState & {
-  enhancementChargeEffects: string[];
+  chargeEnhancements: {
+    name: string;
+    dots: number;
+    effects: string[]
+  }[];
 };
 
 export type Condition = (SimpleCondition | ChargedCondition) & BaseConditionDerivation

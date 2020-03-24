@@ -19,8 +19,7 @@ export class EnhancementPickerModalComponent {
     .pipe(
       select(selectHauntEntities),
       map((haunts) => haunts[this.hauntKey]),
-      map((haunt) => haunt.ranks.filter((rank) => rank.type === "enhancement") as EnhancementHauntRank[]),
-      map((ranks) => ranks.filter((rank) => rank.enhancements.find((enhancement) => enhancement.type === 'persistent' || enhancement.type === 'charge-effect')))
+      map((haunt) => haunt.ranks.filter((rank) => rank.enhancements.find((enhancement) => enhancement.type === "persistent" || enhancement.type === "charge-effect")))
     );
 
   constructor(

@@ -3,7 +3,7 @@ import { Store } from "@ngrx/store";
 import { AppState } from "store/app-state";
 import { ConditionSpec } from "store/condition-specs/condition-spec";
 import { addCondition } from "store/conditions/conditions.actions";
-import { CreateSimpleConditionCommand, CreateConditionCommand } from "store/conditions/create-condition-command";
+import { CreateConditionCommand } from "store/conditions/create-condition-command";
 import { Key } from "store/keys/key";
 import { Router, ActivatedRoute } from "@angular/router";
 
@@ -14,7 +14,6 @@ interface FormModel {
   key: Key;
   activationPlasm: number;
   charges: number;
-  exceptionalSuccess: boolean;
 }
 
 @Component({
@@ -28,8 +27,7 @@ export class AddConditionComponent {
     createdBy: null,
     key: null,
     activationPlasm: null,
-    charges: null,
-    exceptionalSuccess: false
+    charges: null
   }
 
   public submitting: boolean;
@@ -49,8 +47,7 @@ export class AddConditionComponent {
           subject: formModel.subject,
           createdBy: formModel.createdBy,
           keyKey: formModel.key && formModel.key.key,
-          activationPlasm: formModel.activationPlasm,
-          exceptionalSuccess: formModel.exceptionalSuccess
+          activationPlasm: formModel.activationPlasm
         };
         break;
       case "charged":
@@ -60,8 +57,7 @@ export class AddConditionComponent {
           createdBy: formModel.createdBy,
           keyKey: formModel.key && formModel.key.key,
           activationPlasm: formModel.activationPlasm,
-          charges: formModel.charges,
-          exceptionalSuccess: formModel.exceptionalSuccess
+          charges: formModel.charges
         };
     }
     

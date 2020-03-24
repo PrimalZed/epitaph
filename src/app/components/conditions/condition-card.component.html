@@ -27,35 +27,39 @@
       <hr />
       <p class="mb-2">{{ condition.description }}</p>      
       <p class="mb-2" *ngIf="condition.primary"><strong>Plasm Spent on Activation:</strong> {{ condition.activationPlasm}}</p>
-      <div *ngIf="condition.effects.length">
+      <div *ngIf="condition.effects.length || condition.enhancements.length" class="mb-2">
         <h5 class="text-primary">Persistent Effects:</h5>
-        <ul>
+        <ul *ngIf="condition.effects.length">
           <li *ngFor="let effect of condition.effects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
         </ul>
-      </div>
-      <div *ngIf="condition.enhancements.length">
-        <h6>Enhancements:</h6>
-        <ul>
-          <li *ngFor="let enhancement of condition.enhancements; odd as odd" [ngClass]="{ 'text-primary': !odd }">
-            <div *ngFor="let description of enhancement.description | array" [innerHtml]="description | markdown"></div>
-            <ul *ngIf="enhancement.effects?.length">
-              <li *ngFor="let effect of enhancement.effects" [innerHtml]="effect | markdown"></li>
+        <div *ngIf="condition.enhancements.length">
+          <div *ngFor="let enhancement of condition.enhancements">
+            <h6>{{ enhancement.name }} ({{ enhancement.dots | dots }})</h6>
+            <ul>
+              <li *ngFor="let entry of enhancement.entries; odd as odd" [ngClass]="{ 'text-primary': !odd }">
+                <div *ngFor="let description of entry.description | array" [innerHtml]="description | markdown"></div>
+                <ul *ngIf="entry.effects?.length">
+                  <li *ngFor="let effect of entry.effects" [innerHtml]="effect | markdown"></li>
+                </ul>
+                <epitaph-table *ngIf="entry.table" [table]="entry.table"></epitaph-table>
+              </li>
             </ul>
-            <epitaph-table *ngIf="enhancement.table" [table]="enhancement.table"></epitaph-table>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
-      <div *ngIf="condition.type === 'charged'">
+      <div *ngIf="condition.type === 'charged'" class="mb-2">
         <h5 class="text-primary">Instant Effects:</h5>
         <p>{{ condition.chargeDescription }}</p>
         <ul>
           <li *ngFor="let effect of condition.chargeEffects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
         </ul>
-        <div *ngIf="condition.enhancementChargeEffects.length">
-          <h6>Enhancements:</h6>
-          <ul>
-            <li *ngFor="let effect of condition.enhancementChargeEffects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
-          </ul>
+        <div *ngIf="condition.chargeEnhancements.length">
+          <div *ngFor="let chargeEnhancement of condition.chargeEnhancements">
+            <h6>{{ chargeEnhancement.name }} ({{ chargeEnhancement.dots | dots }})</h6>
+            <ul>
+              <li *ngFor="let effect of chargeEnhancement.effects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
+            </ul>
+          </div>
         </div>
         <p>The Condition ends, without resolving, when all charges have been spent.</p>
       </div>

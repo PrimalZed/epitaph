@@ -13,6 +13,7 @@ export interface ActionHauntRank {
   name: string;
   type: "action";
   action: Action;
+  enhancements: HauntEnhancement[];
 }
 
 export interface EnhancementHauntRank {
