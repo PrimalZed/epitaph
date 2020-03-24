@@ -1,7 +1,8 @@
 import { Dictionary } from "@ngrx/entity";
 import { createSelector, createFeatureSelector } from "@ngrx/store";
+import { Table } from "models/table";
 import { AppState } from "store/app-state";
-import { ConditionSpec, ChargedConditionSpec } from "store/condition-specs/condition-spec";
+import { ConditionSpec } from "store/condition-specs/condition-spec";
 import { selectConditionSpecEntities } from "store/condition-specs/condition-specs.selectors";
 import { Haunt, EnhancementHauntRank } from "store/haunts/haunt";
 import { PersistentHauntEnhancement, ChargeEffectHauntEnhancement } from "store/haunts/haunt-enhancement";
@@ -11,7 +12,7 @@ import { selectKeyEntities } from "store/keys/keys.selectors";
 import { Condition } from "./condition";
 import { conditionsAdapter } from "./conditions.adapter";
 import { ConditionsState } from "./conditions-state";
-import { ConditionState, ChargedConditionState } from "./condition-state";
+import { ConditionState } from "./condition-state";
 
 export const selectConditionsState = createFeatureSelector<AppState, ConditionsState>("conditions");
 
@@ -33,13 +34,17 @@ export const selectConditionEntities = createSelector(
         const spec = specEntities[state.specKey];
         const key = state.keyKey && keyEntities[state.keyKey];
         const haunt = hauntEntities[spec.haunt];
-        const addedEffects = haunt.ranks
+        const enhancements = haunt.ranks
           .filter((rank) => rank.type === "enhancement")
-          .reduce<(string | string[])[]>((all, rank: EnhancementHauntRank) => {
+          .reduce<{ description: string | string[], effects?: string[], table?: Table }[]>((all, rank: EnhancementHauntRank) => {
             const persistentEnhancements = rank.enhancements
               .filter((enhancement) => enhancement.type === "persistent")
               .filter((enhancement) => state.enhancementKeys.includes(enhancement.key))
-              .map((enhancement: PersistentHauntEnhancement) => enhancement.description);
+              .map((enhancement: PersistentHauntEnhancement) => ({
+                description: enhancement.description,
+                effects: enhancement.effects,
+                table: enhancement.table 
+              }));
 
             return [...all, ...persistentEnhancements];
           }, []);
@@ -48,11 +53,11 @@ export const selectConditionEntities = createSelector(
           ...(state as any),
           ...spec,
           unlockedKey: key,
-          effects: [...spec.effects, ...addedEffects]
+          enhancements
         };
 
-        if (spec.type === "charged") {
-          const addedChargeEffects = haunt.ranks
+        if (condition.type === "charged") {
+          const enhancementChargeEffects = haunt.ranks
             .filter((rank) => rank.type === "enhancement")
             .reduce<string[]>((all, rank: EnhancementHauntRank) => {
               const persistentEnhancements = rank.enhancements
@@ -64,7 +69,7 @@ export const selectConditionEntities = createSelector(
               return [...all, ...persistentEnhancements];
             }, []);
 
-          (condition as (ChargedConditionSpec & ChargedConditionState)).chargeEffects = [...spec.chargeEffects, ...addedChargeEffects];
+          condition.enhancementChargeEffects = enhancementChargeEffects;
         }
 
         return {

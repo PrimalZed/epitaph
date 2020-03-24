@@ -112,8 +112,8 @@
       "enhancements": [{
         "key": "2-1",
         "cost": 3,
-        "description": "The Bound gains a general Armor rating equal to her Caul rating, and a ballistic Armor rating equal to half her Caul rating (rounded up).",
-        "type": "persistent"
+        "type": "persistent",
+        "description": "The Bound gains a general Armor rating equal to her Caul rating, and a ballistic Armor rating equal to half her Caul rating (rounded up)."
       }]
     }, {
       "dots": 3,
@@ -129,28 +129,28 @@
       }, {
         "key": "3-2",
         "cost": { "min": 1, "max": 4 },
-        "description": "The Sin-Eater’s body swells and bloats, gaining Size equal to Plasm spent. For every 2 Size gained, he also gains a dot a Strength.",
-        "type": "persistent"
+        "type": "persistent",
+        "description": "The Sin-Eater’s body swells and bloats, gaining Size equal to Plasm spent. For every 2 Size gained, he also gains a dot a Strength."
       }, {
         "key": "3-3",
         "cost": 1,
-        "description": "The Sin-Eater warps his body into a scuttling thing, all spindly limbs and gripping fingers. He moves at twice his normal Speed on the ground, and can climb walls and ceilings at his normal Speed.",
-        "type": "persistent"
+        "type": "persistent",
+        "description": "The Sin-Eater warps his body into a scuttling thing, all spindly limbs and gripping fingers. He moves at twice his normal Speed on the ground, and can climb walls and ceilings at his normal Speed."
       }, {
         "key": "3-4",
         "cost": 1,
-        "description": "The Sin-Eater’s next unarmed attack inflicts lethal damage.",
-        "type": "instant"
+        "type": "instant",
+        "description": "The Sin-Eater’s next unarmed attack inflicts lethal damage."
       }, {
         "key": "3-5",
         "cost": 2,
-        "description": "The Sin-Eater grows wings, allowing him to fly at his normal Speed.",
-        "type": "persistent"
+        "type": "persistent",
+        "description": "The Sin-Eater grows wings, allowing him to fly at his normal Speed."
       }, {
         "key": "3-6",
         "cost": 4,
-        "description": "The Sin-Eater transforms into a swarm of tiny animals or visous mass of flesh capable of seeping through any crack wide enough to permit light through. Passing through cracks takes one turn per point of Size.",
-        "type": "persistent"
+        "type": "persistent",
+        "description": "The Sin-Eater transforms into a swarm of tiny animals or visous mass of flesh capable of seeping through any crack wide enough to permit light through. Passing through cracks takes one turn per point of Size."
       }]
     }, {
       "dots": 4,
@@ -159,8 +159,8 @@
       "enhancements": [{
         "key": "4-1",
         "cost": { "min": 1, "max": 5 },
-        "description": "The Sin-Eater creates a homonculus with (Plasm spent) Health levels. This homonculus follows simple commands (e.g. “Carry this,” “Kill her,” “Guard that”) and has a dice pool equal to (2 x Plasm spent) for all physical actions, and a chance die for social and mental actions. Commanding any humber of homunculi is an instant action.",
         "type": "instant",
+        "description": "The Sin-Eater creates a homonculus with (Plasm spent) Health levels. This homonculus follows simple commands (e.g. “Carry this,” “Kill her,” “Guard that”) and has a dice pool equal to (2 x Plasm spent) for all physical actions, and a chance die for social and mental actions. Commanding any humber of homunculi is an instant action.",
         "limit": "the Sin-Eater’s Synergy"
       }]
     }, {

@@ -33,12 +33,30 @@
           <li *ngFor="let effect of condition.effects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
         </ul>
       </div>
+      <div *ngIf="condition.enhancements.length">
+        <h6>Enhancements:</h6>
+        <ul>
+          <li *ngFor="let enhancement of condition.enhancements; odd as odd" [ngClass]="{ 'text-primary': !odd }">
+            <div *ngFor="let description of enhancement.description | array" [innerHtml]="description | markdown"></div>
+            <ul *ngIf="enhancement.effects?.length">
+              <li *ngFor="let effect of enhancement.effects" [innerHtml]="effect | markdown"></li>
+            </ul>
+            <epitaph-table *ngIf="enhancement.table" [table]="enhancement.table"></epitaph-table>
+          </li>
+        </ul>
+      </div>
       <div *ngIf="condition.type === 'charged'">
         <h5 class="text-primary">Instant Effects:</h5>
         <p>{{ condition.chargeDescription }}</p>
         <ul>
           <li *ngFor="let effect of condition.chargeEffects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
         </ul>
+        <div *ngIf="condition.enhancementChargeEffects.length">
+          <h6>Enhancements:</h6>
+          <ul>
+            <li *ngFor="let effect of condition.enhancementChargeEffects; odd as odd" [ngClass]="{ 'text-primary': !odd }" [innerHtml]="effect | markdown"></li>
+          </ul>
+        </div>
         <p>The Condition ends, without resolving, when all charges have been spent.</p>
       </div>
       <div>
