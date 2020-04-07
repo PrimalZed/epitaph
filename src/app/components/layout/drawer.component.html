@@ -11,5 +11,7 @@
     <a class="dropdown-item" [ngClass]="{ 'active': conditionsActive$ | async }" [routerLink]="['/conditions']">Conditions</a>
     <a class="dropdown-item" [ngClass]="{ 'active': hauntsActive$ | async }" [routerLink]="['/haunts']">Haunts</a>
     <a class="dropdown-item" [ngClass]="{ 'active': keysActive$ | async }" [routerLink]="['/keys']">Keys</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" [routerLink]="['/about']">About</a>
   </div>  
 </div>

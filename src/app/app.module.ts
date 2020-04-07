@@ -31,8 +31,9 @@ import { KeyCardComponent } from "components/keys/key-card.component";
 import { KeyModalComponent } from "components/keys/key.modal.component";
 import { KeysComponent } from "components/keys/keys.component";
 import { DrawerComponent } from "components/layout/drawer.component";
-import { SaveNameComponent } from "components/system/save-name.component";
+import { AboutComponent } from "components/system/about.component";
 import { LoadComponent } from "components/system/load.component";
+import { SaveNameComponent } from "components/system/save-name.component";
 
 import { environment } from "environments/environment";
 
@@ -68,12 +69,14 @@ const appRoutes: Routes = [
     data: { activeNavigation: "conditions" }
   },
   { path: "haunts", component: HauntsComponent, data: { activeNavigation: "haunts" } },
-  { path: "keys", component: KeysComponent, data: { activeNavigation: "keys" } }
+  { path: "keys", component: KeysComponent, data: { activeNavigation: "keys" } },
+  { path: "about", component: AboutComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    AboutComponent,
     ActionButtonComponent,
     ActionComponent,
     AddConditionComponent,
