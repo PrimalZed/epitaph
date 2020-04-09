@@ -3,10 +3,12 @@
 </div>
 <div class="modal-body">
   <div class="list-group">
-    <button *ngFor="let save of saves$ | async" class="list-group-item list-group-item-action"
+    <button *ngFor="let save of saves$ | async" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
       type="button" matRipple (click)="load(save.id)">
-      {{ save.name }} {{ save.date | date }}
+      <span>{{ save.name }} {{ save.date | date }}</span>
+      <button class="btn btn-outline-danger" (click)="delete(save.id); $event.stopPropagation()">
+        <fa-icon [icon]="['fas', 'trash-alt']" size="lg"></fa-icon>
+      </button>
     </button>
   </div>
-  
 </div>

@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
-import { from } from "rxjs";
 import { SaveService } from "services/save.service";
 
 @Component({
@@ -9,7 +8,7 @@ import { SaveService } from "services/save.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoadComponent {
-  public saves$ = from(this.saveService.list());
+  public saves$ = this.saveService.saves$;
 
   constructor(
     private saveService: SaveService,
@@ -19,5 +18,9 @@ export class LoadComponent {
   load(id: number) {
     this.saveService.load(id);
     this.modal.close();
+  }
+
+  delete(id: number) {
+    this.saveService.delete(id);
   }
 }

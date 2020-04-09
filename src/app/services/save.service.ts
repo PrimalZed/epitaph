@@ -8,12 +8,12 @@ import {
   openDB
 } from "idb";
 import { Subject, merge } from "rxjs";
-import { first, switchMap, tap } from "rxjs/operators";
+import { first, startWith, switchMap, tap } from "rxjs/operators";
 
 import { AppState } from "store/app-state";
 import { selectSaveState } from "store/meta.selectors";
 import { SaveState } from "store/system/save-state";
-import { loadSave, newSave, saveSuccess } from "store/system/system.actions";
+import { loadSave, newSave, deleteSaveSuccess, saveSuccess } from "store/system/system.actions";
 
 interface SavesDbSchema extends DBSchema {
   abstracts: {
@@ -74,7 +74,28 @@ export class SaveService implements OnDestroy {
       })
     );
 
-  private subscription = merge(this.save$, this.load$).subscribe();
+  private deleteSubject: Subject<number> = new Subject();
+  private delete$ = this.deleteSubject
+    .pipe(
+      switchMap((id) => this.dbPromise
+        .then((db) => Promise.all([
+          db.delete("states", id),
+          db.delete("abstracts", id)
+        ]))
+      ),
+      tap(() => this.store.dispatch(deleteSaveSuccess()))
+    );
+
+  private subscription = merge(this.save$, this.load$, this.delete$).subscribe();
+
+  public saves$ = merge(this.save$, this.delete$)
+    .pipe(
+      startWith(null),
+      switchMap(() => this.dbPromise
+        .then((db) => db.getAll("abstracts"))
+        .then((abstracts) => abstracts.sort((a, b) => b.date.valueOf() - a.date.valueOf()))
+      )
+    );
 
   constructor(
     private store: Store<AppState>,
@@ -103,14 +124,12 @@ export class SaveService implements OnDestroy {
     this.saveSubject.next();
   }
 
-  list() {
-    return this.dbPromise
-      .then((db) => db.getAll("abstracts"))
-      .then((abstracts) => abstracts.sort((a, b) => b.date.valueOf() - a.date.valueOf()));
-  }
-
   load(id?: number) {
     this.loadSubject.next(id);
+  }
+
+  delete(id: number) {
+    this.deleteSubject.next(id);
   }
 
   ngOnDestroy() {

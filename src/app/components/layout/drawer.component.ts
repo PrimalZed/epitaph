@@ -1,11 +1,9 @@
 import { Component, OnDestroy, Output, EventEmitter, Renderer2 } from "@angular/core";
 import { Router, ActivatedRoute, NavigationEnd } from "@angular/router";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { Store } from "@ngrx/store";
-import { filter, map, mapTo, mergeMap, switchMap, startWith } from "rxjs/operators";
+import { filter, map, mapTo, switchMap, startWith } from "rxjs/operators";
 import { LoadComponent } from "components/system/load.component";
-import { AppState } from "store/app-state";
-import { newSave } from "store/system/system.actions";
+import { SaveService } from "services/save.service";
 
 @Component({
   selector: "drawer",
@@ -21,7 +19,7 @@ export class DrawerComponent implements OnDestroy {
 
   constructor(
     private renderer: Renderer2,
-    private store: Store<AppState>,
+    private saveService: SaveService,
     private modalService: NgbModal,
     private router: Router,
     private activatedRoute: ActivatedRoute
@@ -47,7 +45,7 @@ export class DrawerComponent implements OnDestroy {
   }
 
   new() {
-    this.store.dispatch(newSave());
+    this.saveService.new();
     this.close();
   }
 

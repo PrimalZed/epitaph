@@ -7,7 +7,8 @@ import {
   faKey,
   faSave,
   faTag,
-  faTimes
+  faTimes,
+  faTrashAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 @Injectable({
@@ -24,7 +25,8 @@ export class IconsService {
       faKey,
       faSave,
       faTag,
-      faTimes
+      faTimes,
+      faTrashAlt
     );
   }
 }

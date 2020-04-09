@@ -8,12 +8,16 @@ import {
 import { SaveState } from "./save-state";
 
 export const newSave = createAction(
-  "[System] New Save",
+  "[System] New Save"
 );
 
 export const setName = createAction(
   "[System] Set Name",
   props<{ name: string }>()
+);
+
+export const deleteSaveSuccess = createAction(
+  "[System] Delete Save Succes"
 );
 
 export const saveSuccess = createAction(
@@ -33,5 +37,6 @@ export type SystemActions =
   | typeof removeCondition
   | typeof newSave
   | typeof setName
+  | typeof deleteSaveSuccess
   | typeof saveSuccess
   | typeof loadSave;
