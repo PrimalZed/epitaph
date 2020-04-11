@@ -36,6 +36,15 @@ How to represent charges?  Dots?
 
 Host device propagates data to connected devices.
 
+Signalling:
+
+* List Rooms
+
+* Create Room (password)
+
+* Join Room
+(negotiate WebRTC offers from new participant to all other room participants)
+
 ### Characters
 
 ```typescript

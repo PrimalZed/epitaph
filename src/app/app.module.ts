@@ -17,6 +17,7 @@ import { AddConditionComponent } from "components/conditions/add-condition.compo
 import { ConditionCardComponent } from "components/conditions/condition-card.component";
 import { ConditionsComponent } from "components/conditions/conditions.component";
 import { ConnectionComponent } from "components/connection/connection.component";
+import { PeerComponent } from "components/connection/peer.component";
 import { ConditionPickerComponent } from "components/controls/condition-picker.component";
 import { ConditionPickerModalComponent } from "components/controls/condition-picker.modal.component";
 import { EnhancementPickerModalComponent } from "components/controls/enhancement-picker.modal.component";
@@ -45,7 +46,6 @@ import { PlasmPipe } from "pipes/plasm.pipe";
 
 import { DataService } from "services/data.service";
 import { IconsService } from "services/icons.service";
-import { RTCReceiverService } from "services/rtc-receiver.service";
 import { SaveService } from "services/save.service";
 
 import { AppState } from "store/app-state";
@@ -70,7 +70,8 @@ const appRoutes: Routes = [
   },
   { path: "haunts", component: HauntsComponent, data: { activeNavigation: "haunts" } },
   { path: "keys", component: KeysComponent, data: { activeNavigation: "keys" } },
-  { path: "about", component: AboutComponent }
+  { path: "about", component: AboutComponent },
+  { path: "connection", component: ConnectionComponent }
 ];
 
 @NgModule({
@@ -83,6 +84,7 @@ const appRoutes: Routes = [
     ConditionCardComponent,
     ConditionsComponent,
     ConnectionComponent,
+    PeerComponent,
     ConditionPickerComponent,
     ConditionPickerModalComponent,
     DrawerComponent,

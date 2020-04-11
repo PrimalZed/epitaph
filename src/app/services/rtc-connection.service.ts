@@ -31,7 +31,7 @@ export class RTCConnectionService {
     ]
   }
 
-  public getConnection(local: boolean) {
-    return new RTCPeerConnection(local ? {} : this.internetServers);
+  public create() {
+    return new RTCPeerConnection(this.internetServers);
   }
 }

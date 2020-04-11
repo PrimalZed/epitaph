@@ -1,0 +1,17 @@
+<h1>Participant {{me}}</h1>
+
+<div>
+  <button (click)="rtc.join()">Join</button>
+</div>
+
+<div>
+  <textarea [(ngModel)]="outMessage"></textarea>
+</div>
+
+<div>
+  <button (click)="rtc.send(outMessage)">Send</button>
+</div>
+
+<div>
+  <textarea [ngModel]="rtc.message$ | async | json" readonly></textarea>
+</div>
