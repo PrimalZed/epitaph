@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   basePath: "",
   serverHost: "https://localhost:44347"
+  // serverHost: "https://epitaph-signaling.azurewebsites.net"
 };
 
 /*

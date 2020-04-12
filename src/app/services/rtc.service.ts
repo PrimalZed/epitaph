@@ -130,12 +130,10 @@ export class RTCService {
 
   private initChannel(channel: RTCDataChannel, peer: string) {
     channel.onopen = (ev) => {
-      console.log("data channel sender connect", peer);
-      // TODO: Host should send starting data to peer.
-      // What if the host leaves??
+      console.log("data channel connect", peer);
     };
     channel.onclose = (ev) => {
-      console.log("data channel sender disconnect", peer);
+      console.log("data channel disconnect", peer);
       this.cleanChannels();
     };
     channel.onmessage = (ev) => {
