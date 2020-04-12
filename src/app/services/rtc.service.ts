@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from "@angular/core";
-import { Subject, Subscription, combineLatest, merge } from "rxjs";
-import { filter, mergeMap, shareReplay, switchMap, tap } from "rxjs/operators";
+import { Subject, Subscription, merge } from "rxjs";
+import { filter, mergeMap, shareReplay, switchMap } from "rxjs/operators";
 import { RTCConnectionService } from "./rtc-connection.service";
 import { RTCSignalingService, SessionSignalingMessage, IceSignalingMessage } from "./rtc-signaling.service";
 import { RTCRoomsService } from "./rtc-rooms.service";
@@ -17,18 +17,20 @@ export class RTCService {
   private messageSubject: Subject<{ from: string, content: any }> = new Subject();
   public message$ = this.messageSubject.asObservable();
 
-  private connectSignalingPromise = this.signalingService.connect();
+  private connectSignalingPromise: Promise<void>;
 
   private createSubject: Subject<{ name: string, password: string }> = new Subject();
-  private create$ = combineLatest(this.createSubject, this.connectSignalingPromise)
+  private create$ = this.createSubject
     .pipe(
-      switchMap(([{ name, password }]) => this.signalingService.create(name, password))
+      switchMap(({ name, password }) => this.connectSignaling().then(() => ({ name, password }))),
+      switchMap(({ name, password }) => this.signalingService.create(name, password))
     );
 
   private joinSubject: Subject<{ roomId: string, password: string }> = new Subject();
-  private join$ = combineLatest(this.joinSubject, this.connectSignalingPromise)
+  private join$ = this.joinSubject
     .pipe(
-      switchMap(([{ roomId, password }]) => this.signalingService.join(roomId, password))
+      switchMap(({ roomId, password }) => this.connectSignaling().then(() => ({ roomId, password }))),
+      switchMap(({ roomId, password }) => this.signalingService.join(roomId, password))
     );
 
   public createConnections$ = this.signalingService.members$
@@ -87,6 +89,13 @@ export class RTCService {
     private connectionService: RTCConnectionService,
     private zone: NgZone
   ) { }
+
+  connectSignaling(): Promise<void> {
+    if (!this.connectSignalingPromise) {
+      this.connectSignalingPromise = this.signalingService.connect();
+    }
+    return this.connectSignalingPromise
+  }
 
   public create(name: string, password: string) {
     this.createSubject.next({ name, password });
