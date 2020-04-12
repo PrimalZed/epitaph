@@ -17,7 +17,6 @@ import { AddConditionComponent } from "components/conditions/add-condition.compo
 import { ConditionCardComponent } from "components/conditions/condition-card.component";
 import { ConditionsComponent } from "components/conditions/conditions.component";
 import { ConnectionComponent } from "components/connection/connection.component";
-import { PeerComponent } from "components/connection/peer.component";
 import { ConditionPickerComponent } from "components/controls/condition-picker.component";
 import { ConditionPickerModalComponent } from "components/controls/condition-picker.modal.component";
 import { EnhancementPickerModalComponent } from "components/controls/enhancement-picker.modal.component";
@@ -84,7 +83,6 @@ const appRoutes: Routes = [
     ConditionCardComponent,
     ConditionsComponent,
     ConnectionComponent,
-    PeerComponent,
     ConditionPickerComponent,
     ConditionPickerModalComponent,
     DrawerComponent,

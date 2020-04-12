@@ -1,3 +1,47 @@
-<div class="d-flex">
-  <peer class="flex-fill"></peer>
-</div>
+<ng-container *ngIf="!(connected$ | async)">
+  <div>
+    <h2>Rooms</h2>
+    <div *ngIf="!(rtc.rooms$ | async)?.length">(No Rooms Found)</div>
+    <div *ngFor="let room of rtc.rooms$ | async">{{ room | json }}</div>
+  </div>
+
+  <form #createForm="ngForm" (ngSubmit)="rtc.create(createForm.value.name, createForm.value.password)">
+    <h2>Create Room</h2>
+    <div>
+      <label>Room Name</label>
+      <input type="text" name="name" ngModel required />
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="text" name="password" ngModel required />
+    </div>
+    <button [disabled]="!createForm.valid">Create</button>
+  </form>
+
+  <form #joinForm="ngForm" (ngSubmit)="rtc.join(joinForm.value.id, joinForm.value.password)">
+    <h2>Join Room</h2>
+    <div>
+      <label>Room Id</label>
+      <input type="text" name="id" ngModel required />
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="text" name="password" ngModel required />
+    </div>
+    <button [disabled]="!joinForm.valid">Join</button>
+  </form>
+</ng-container>
+
+<ng-container *ngIf="connected$ | async">
+  <form #messageForm="ngForm" (ngSubmit)="rtc.send(messageForm.value.message)">
+    <h2>Messaging</h2>
+    <div>
+      <input type="text" name="message" ngModel />
+    </div>
+    <button>Send</button>
+  </form>
+
+  <div>
+    <textarea [ngModel]="rtc.message$ | async | json" readonly></textarea>
+  </div>
+</ng-container>

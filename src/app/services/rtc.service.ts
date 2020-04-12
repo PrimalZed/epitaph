@@ -31,7 +31,7 @@ export class RTCService {
       switchMap(([{ roomId, password }]) => this.signalingService.join(roomId, password))
     );
 
-  private createConnections$ = this.signalingService.members$
+  public createConnections$ = this.signalingService.members$
     .pipe(
       switchMap((peers) => {
         const offerPromises = peers
@@ -49,7 +49,8 @@ export class RTCService {
               });
           });
         return Promise.all(offerPromises);
-      })
+      }),
+      shareReplay(1)
     );
 
   private processOffer$ = this.signalingService.message$
