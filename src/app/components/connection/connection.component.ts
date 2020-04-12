@@ -12,6 +12,8 @@ import { RTCService } from "services/rtc.service";
 })
 export class ConnectionComponent {
   public connected$ = this.rtc.createConnections$.pipe(mapTo(true));
+  public submitting: boolean;
+
   constructor(
     public rtc: RTCService
   ) { }

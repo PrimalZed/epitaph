@@ -5,30 +5,34 @@
     <div *ngFor="let room of rtc.rooms$ | async">{{ room | json }}</div>
   </div>
 
-  <form #createForm="ngForm" (ngSubmit)="rtc.create(createForm.value.name, createForm.value.password)">
+  <form #createForm="ngForm" (ngSubmit)="rtc.create(createForm.value.name, createForm.value.password); submitting = true;">
     <h2>Create Room</h2>
-    <div>
-      <label>Room Name</label>
-      <input type="text" name="name" ngModel required />
-    </div>
-    <div>
-      <label>Password</label>
-      <input type="password" name="password" ngModel required />
-    </div>
-    <button [disabled]="!createForm.valid">Create</button>
+    <fieldset [disabled]="submitting">
+      <div>
+        <label>Room Name</label>
+        <input type="text" name="name" ngModel required />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" ngModel required />
+      </div>
+      <button [disabled]="!createForm.valid">Create</button>
+    </fieldset>
   </form>
 
-  <form #joinForm="ngForm" (ngSubmit)="rtc.join(joinForm.value.id, joinForm.value.password)">
+  <form #joinForm="ngForm" (ngSubmit)="rtc.join(joinForm.value.id, joinForm.value.password); submitting = true;">
     <h2>Join Room</h2>
-    <div>
-      <label>Room Id</label>
-      <input type="text" name="id" ngModel required />
-    </div>
-    <div>
-      <label>Password</label>
-      <input type="password" name="password" ngModel required />
-    </div>
-    <button [disabled]="!joinForm.valid">Join</button>
+    <fieldset [disabled]="submitting">
+      <div>
+        <label>Room Id</label>
+        <input type="text" name="id" ngModel required />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" ngModel required />
+      </div>
+      <button [disabled]="!joinForm.valid">Join</button>
+    </fieldset>
   </form>
 </ng-container>
 
