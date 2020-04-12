@@ -1,6 +1,4 @@
-import { Component, ChangeDetectionStrategy, NgZone, OnInit, OnDestroy, Input } from "@angular/core";
-import { RTCConnectionService } from "services/rtc-connection.service";
-import { RTCSignallingService } from "services/rtc-signalling.service";
+import { Component, ChangeDetectionStrategy, OnDestroy } from "@angular/core";
 import { RTCService } from "services/rtc.service";
 
 @Component({
@@ -11,20 +9,15 @@ import { RTCService } from "services/rtc.service";
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PeerComponent implements OnInit, OnDestroy {
-  @Input() me: string;
-  public rtc: RTCService;
+export class PeerComponent implements OnDestroy {
+  public roomName: string;
+  public roomId: string;
+  public password: string;
   public outMessage: string;
 
   constructor(
-    private connectionService: RTCConnectionService,
-    private signallingService: RTCSignallingService,
-    private zone: NgZone
+    public rtc: RTCService
   ) { }
-
-  ngOnInit() {
-    this.rtc = new RTCService(this.me, this.signallingService, this.connectionService, this.zone);
-  }
 
   ngOnDestroy() {
     if (this.rtc) {

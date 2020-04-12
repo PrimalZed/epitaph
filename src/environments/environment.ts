@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  basePath: ""
+  basePath: "",
+  serverHost: "https://localhost:44347"
 };
 
 /*

@@ -34,16 +34,8 @@ How to represent charges?  Dots?
 
 ### P2P
 
-Host device propagates data to connected devices.
-
-Signalling:
-
-* List Rooms
-
-* Create Room (password)
-
-* Join Room
-(negotiate WebRTC offers from new participant to all other room participants)
+* Load starting state from a peer
+* Transmit actions to peers
 
 ### Characters
 
