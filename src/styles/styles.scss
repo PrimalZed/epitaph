@@ -22,7 +22,8 @@ $card-border-color: rgba(#000, .25);
 $btn-focus-box-shadow: none;
 
 $theme-colors: (
-  "primary": #005394
+  "primary": #005394,
+  "secondary": #303f50
 );
 
 @import "~bootstrap/scss/bootstrap";
@@ -52,6 +53,20 @@ body {
 
   &.drawerOpen {
     overflow: hidden;
+  }
+}
+
+.bg-keys {
+  background-color: theme-color("secondary");
+  background-image: url("../assets/images/Geist_Background_Row.png");
+  background-repeat: repeat-x;
+
+  & .btn-secondary {
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+      background-color: theme-color-level("secondary", 5);
+    }
   }
 }
 

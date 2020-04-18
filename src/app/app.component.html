@@ -1,9 +1,9 @@
-<nav class="navbar navbar-dark bg-primary fixed-top">
-  <button class="btn btn-primary rounded-pill mr-3" type="button" matRipple (click)="showDrawer = !showDrawer">
+<nav class="navbar navbar-dark bg-keys fixed-top">
+  <button class="btn btn-secondary rounded-pill mr-3" type="button" matRipple (click)="showDrawer = !showDrawer">
     <fa-icon [icon]="['fas', 'bars']" size="lg"></fa-icon>
   </button>
   <div class="navbar-brand mr-auto">{{ (headerName$ | async) || "Epitaph" | titlecase }}</div>
-  <button *ngIf="dirty$ | async" class="btn btn-primary rounded-pill" matRipple (click)="save()">
+  <button *ngIf="dirty$ | async" class="btn btn-secondary rounded-pill" matRipple (click)="save()">
     <fa-icon [icon]="['fas', 'save']" size="lg"></fa-icon>
   </button>
 </nav>
