@@ -13,7 +13,7 @@ import { channelsReducer } from "rtc/store/channels/channels.reducers";
 import { connectionsReducer } from "rtc/store/connections/connections.reducers";
 
 const rtcRoutes: Routes = [
-  { path: "", component: ConnectionComponent }
+  { path: "connection", component: ConnectionComponent }
 ];
 
 @NgModule({

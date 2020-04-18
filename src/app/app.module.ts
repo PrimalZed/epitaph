@@ -8,6 +8,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
+import { EffectsModule } from "@ngrx/effects";
 import { StoreModule, Action } from "@ngrx/store";
 
 import { ActionButtonComponent } from "components/common/action-button.component";
@@ -48,6 +49,7 @@ import { SaveService } from "services/save.service";
 
 import { AppState } from "store/app-state";
 import { conditionSpecsReducer } from "store/condition-specs/condition-specs.reducer";
+import { ConditionsEffects } from "store/conditions/conditions.effects";
 import { conditionsReducer } from "store/conditions/conditions.reducer";
 import { hauntsReducer } from "store/haunts/haunts.reducers";
 import { keysReducer } from "store/keys/keys.reducers";
@@ -110,6 +112,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    EffectsModule.forRoot([ConditionsEffects]),
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,

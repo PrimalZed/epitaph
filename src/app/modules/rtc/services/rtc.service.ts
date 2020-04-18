@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from "@angular/core";
+import { Injectable, OnDestroy, NgZone } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Subject, Subscription, merge } from "rxjs";
 import { filter, first, map, mergeMap, shareReplay, switchMap, tap } from "rxjs/operators";
@@ -11,7 +11,7 @@ import { selectAllChannels } from "rtc/store/channels/channels.selectors";
 import { setRemoteDescription, addIceCandidate, upsertConnection, removeConnection } from "rtc/store/connections/connections.actions";
 
 @Injectable()
-export class RTCService {
+export class RTCService implements OnDestroy {
   public rooms$ = this.roomsService.list();
 
   private messageSubject: Subject<{ from: string, content: any }> = new Subject();
@@ -164,6 +164,8 @@ export class RTCService {
     };
     channel.onmessage = (e) => {
       this.zone.run(() => {
+        // TODO: Trigger NGRX action
+        console.log("message", peer, e.data);
         this.messageSubject.next({ from: peer, content: e.data });
       });
     }
@@ -175,7 +177,7 @@ export class RTCService {
     this.sendSubject.next(message);
   }
 
-  public destroy() {
+  public ngOnDestroy() {
     if (this.subscription && !this.subscription.closed) {
       this.subscription.unsubscribe();
     }

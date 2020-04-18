@@ -17,10 +17,4 @@ export class ConnectionComponent {
   constructor(
     public rtc: RTCService
   ) { }
-
-  ngOnDestroy() {
-    if (this.rtc) {
-      this.rtc.destroy();
-    }
-  }
 }
