@@ -7,8 +7,8 @@
     <fa-icon [icon]="['fas', 'save']" size="lg"></fa-icon>
   </button>
 </nav>
-<div style="position: absolute; top: 4rem; bottom: 0; left: 0; right: 0;">
-  <drawer *ngIf="showDrawer" (close)="showDrawer = false"></drawer>
+<drawer *ngIf="showDrawer" (close)="showDrawer = false"></drawer>
+<div class="content">
   <div class="container">
     <router-outlet></router-outlet>
   </div>
