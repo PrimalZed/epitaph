@@ -1,6 +1,6 @@
-<div class="card">
-  <form class="card-body" #ngForm="ngForm" (submit)="submit(formModel)">
-    <fieldset [disabled]="submitting">
+<form #ngForm="ngForm" (submit)="submit(formModel)">
+  <div class="card">
+    <fieldset class="card-body" [disabled]="submitting">
       <div class="form-group">
         <label class="form-control-label">Condition</label>
         <condition-picker name="condition" [(ngModel)]="formModel.condition" required></condition-picker>
@@ -28,8 +28,8 @@
         </div>
       </ng-container>
     </fieldset>
-  </form>
-</div>
-<action-button [disabled]="!ngForm.form.touched || !ngForm.form.valid">
-  <fa-icon [icon]="['fas', 'check']"></fa-icon>
-</action-button>
+  </div>
+  <action-button [disabled]="!ngForm.form.touched || !ngForm.form.valid || submitting">
+    <fa-icon [icon]="['fas', 'check']"></fa-icon>
+  </action-button>
+</form>
