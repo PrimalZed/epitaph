@@ -1,33 +1,35 @@
-<form #ngForm="ngForm" (submit)="submit(formModel)">
-  <fieldset [disabled]="submitting">
-    <div class="form-group">
-      <label class="form-control-label">Condition</label>
-      <condition-picker name="condition" [(ngModel)]="formModel.condition" required></condition-picker>
-    </div>
-    <div class="form-group">
-      <label>Subject</label>
-      <input class="form-control" name="subject" [(ngModel)]="formModel.subject" required>
-    </div>
-    <div class="form-group">
-      <label>Sin-Eater</label>
-      <input class="form-control" name="createdBy" [(ngModel)]="formModel.createdBy" required>
-    </div>
-    <ng-container *ngIf="formModel.condition?.primary">
+<div class="card">
+  <form class="card-body" #ngForm="ngForm" (submit)="submit(formModel)">
+    <fieldset [disabled]="submitting">
       <div class="form-group">
-        <label>Key</label>
-        <key-picker name="key" [(ngModel)]="formModel.key"></key-picker>
+        <label class="form-control-label">Condition</label>
+        <condition-picker name="condition" [(ngModel)]="formModel.condition" required></condition-picker>
       </div>
       <div class="form-group">
-        <label>Plasm Spent on Activation</label>
-        <input type="number" class="form-control" name="activationPlasm" [(ngModel)]="formModel.activationPlasm" required min="1">
+        <label>Subject</label>
+        <input class="form-control" name="subject" [(ngModel)]="formModel.subject" required>
       </div>
-      <div *ngIf="formModel.condition?.type === 'charged'" class="form-group">
-        <label>Charges</label>
-        <input type="number" class="form-control" name="charges" [(ngModel)]="formModel.charges" required min="1">
+      <div class="form-group">
+        <label>Sin-Eater</label>
+        <input class="form-control" name="createdBy" [(ngModel)]="formModel.createdBy" required>
       </div>
-    </ng-container>
-    <action-button [disabled]="!ngForm.form.touched || !ngForm.form.valid">
-      <fa-icon [icon]="['fas', 'check']"></fa-icon>
-    </action-button>
-  </fieldset>
-</form>
+      <ng-container *ngIf="formModel.condition?.primary">
+        <div class="form-group">
+          <label>Key</label>
+          <key-picker name="key" [(ngModel)]="formModel.key"></key-picker>
+        </div>
+        <div class="form-group">
+          <label>Plasm Spent on Activation</label>
+          <input type="number" class="form-control" name="activationPlasm" [(ngModel)]="formModel.activationPlasm" required min="1">
+        </div>
+        <div *ngIf="formModel.condition?.type === 'charged'" class="form-group">
+          <label>Charges</label>
+          <input type="number" class="form-control" name="charges" [(ngModel)]="formModel.charges" required min="1">
+        </div>
+      </ng-container>
+    </fieldset>
+  </form>
+</div>
+<action-button [disabled]="!ngForm.form.touched || !ngForm.form.valid">
+  <fa-icon [icon]="['fas', 'check']"></fa-icon>
+</action-button>
