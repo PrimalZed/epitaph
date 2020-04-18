@@ -1,8 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { RTCService } from "rtc/services/rtc.service";
-import { decrementConditionCharge, addConditionEffect } from "./conditions.actions";
-import { exhaustMap, tap, map } from "rxjs/operators";
+import {
+  addCondition,
+  decrementConditionCharge,
+  addConditionEffect,
+  removeCondition
+} from "./conditions.actions";
+import { map } from "rxjs/operators";
 import { createAction } from "@ngrx/store";
 
 const noop = createAction(
@@ -12,9 +17,11 @@ const noop = createAction(
 @Injectable()
 export class ConditionsEffects {
   emitActions$ = createEffect(() => this.actions$.pipe(
-    ofType(decrementConditionCharge, addConditionEffect),
+    ofType(addCondition, decrementConditionCharge, addConditionEffect, removeCondition),
     map((action) => {
-      this.rtcService.send(JSON.stringify(action));
+      if (!(action as any).stopPropagation) {
+        this.rtcService.send(JSON.stringify(action));
+      }
       return noop();
     })
   ));

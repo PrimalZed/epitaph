@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy, OnDestroy, HostListener } from "@angular/core";
 import { Router, NavigationEnd, ActivatedRoute } from "@angular/router";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Store, select } from "@ngrx/store";
+import { Subject, Subscription, combineLatest, merge, of } from "rxjs";
+import { filter, first, map, mapTo, startWith, switchMap, tap } from "rxjs/operators";
+import { SaveNameComponent } from "components/system/save-name.component";
+import { selectHost } from "rtc/store/host/host.selectors";
 import { SaveService } from "services/save.service";
 import { AppState } from "store/app-state";
 import { selectDirty, selectSaveName } from "store/system/system.selectors";
-import { filter, first, map, mapTo, startWith, switchMap, tap } from "rxjs/operators";
-import { Subject, Subscription, merge, of } from "rxjs";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { SaveNameComponent } from "components/system/save-name.component";
 
 @Component({
   selector: "app-root",
@@ -36,9 +37,9 @@ export class AppComponent implements OnDestroy {
     );
   
   private dirty: boolean;
-  public dirty$ = this.store
+  public dirty$ = combineLatest(this.store.pipe(select(selectDirty)), this.store.pipe(select(selectHost)))
     .pipe(
-      select(selectDirty),
+      map(([dirty, host]) => dirty && host),
       tap((dirty) => {
         this.dirty = dirty;
       })

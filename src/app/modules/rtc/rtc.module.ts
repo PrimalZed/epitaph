@@ -11,6 +11,7 @@ import { RTCRoomsService } from "rtc/services/rtc-rooms.service";
 import { RTCSignalingService } from "rtc/services/rtc-signaling.service";
 import { channelsReducer } from "rtc/store/channels/channels.reducers";
 import { connectionsReducer } from "rtc/store/connections/connections.reducers";
+import { hostReducer } from "rtc/store/host/host.reducers";
 
 const rtcRoutes: Routes = [
   { path: "connection", component: ConnectionComponent }
@@ -27,7 +28,8 @@ const rtcRoutes: Routes = [
     RouterModule.forChild(rtcRoutes),
     StoreModule.forFeature("rtc", {
       channels: channelsReducer,
-      connections: connectionsReducer
+      connections: connectionsReducer,
+      host: hostReducer
     })
   ],
   providers: [

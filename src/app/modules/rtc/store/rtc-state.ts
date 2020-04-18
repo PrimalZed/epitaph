@@ -6,6 +6,7 @@ import { createFeatureSelector } from "@ngrx/store";
 export interface RTCState {
   connections: EntityState<RTCPeerConnectionKeyValue>;
   channels: EntityState<RTCDataChannelKeyValue>;
+  host: boolean;
 }
 
 export const selectRTCState = createFeatureSelector<RTCState>("rtc");

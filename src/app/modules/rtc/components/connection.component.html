@@ -37,15 +37,5 @@
 </ng-container>
 
 <ng-container *ngIf="connected$ | async">
-  <form #messageForm="ngForm" (ngSubmit)="rtc.send(messageForm.value.message)">
-    <h2>Messaging</h2>
-    <div>
-      <input type="text" name="message" ngModel />
-    </div>
-    <button>Send</button>
-  </form>
-
-  <div>
-    <textarea [ngModel]="rtc.message$ | async | json" readonly></textarea>
-  </div>
+  <h1>Connected</h1>
 </ng-container>

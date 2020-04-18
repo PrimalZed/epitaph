@@ -1,8 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import {
-  loadConditionStates,
   addCondition,
-  selectCondition,
   decrementConditionCharge,
   addConditionEffect,
   removeCondition,
@@ -25,13 +23,8 @@ export const conditionsReducer = createReducer<ConditionsState, ConditionsAction
     counter: (saveState.conditions ?? []).reduce((max, condition) => Math.max(max, condition.id + 1), 0)
   })),
   on(newSave, (state) => initialConditionsState),
-  on(loadConditionStates, (state, { conditions }) => ({
-    ...conditionsAdapter.addAll(conditions ?? [], state),
-    counter: (conditions ?? []).reduce((max, condition) => Math.max(max, condition.id + 1), 0)
-  })),
   on(addCondition, (state, { command }) => 
     conditionsAdapter.addOne({ id: state.counter, ...command, enhancementKeys: [] }, { ...state, counter: state.counter + 1 })),
-  on(selectCondition, (state, { id }) => ({ ...state, selectedConditionId: id })),
   on(decrementConditionCharge, (state, { id }) => {
     const condition = state.entities[id] as ChargedConditionState;
     return conditionsAdapter.updateOne(

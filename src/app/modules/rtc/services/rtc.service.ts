@@ -9,13 +9,11 @@ import { RTCRoomsService } from "./rtc-rooms.service";
 import { upsertChannel, removeChannel } from "rtc/store/channels/channels.actions";
 import { selectAllChannels } from "rtc/store/channels/channels.selectors";
 import { setRemoteDescription, addIceCandidate, upsertConnection, removeConnection } from "rtc/store/connections/connections.actions";
+import { setHost, clearHost } from "rtc/store/host/host.actions";
 
 @Injectable()
 export class RTCService implements OnDestroy {
   public rooms$ = this.roomsService.list();
-
-  private messageSubject: Subject<{ from: string, content: any }> = new Subject();
-  public message$ = this.messageSubject.asObservable();
 
   private connectSignalingPromise: Promise<void>;
 
@@ -23,14 +21,16 @@ export class RTCService implements OnDestroy {
   private create$ = this.createSubject
     .pipe(
       switchMap(({ name, password }) => this.connectSignaling().then(() => ({ name, password }))),
-      switchMap(({ name, password }) => this.signalingService.create(name, password))
+      switchMap(({ name, password }) => this.signalingService.create(name, password)),
+      tap(() => this.store.dispatch(setHost()))
     );
 
   private joinSubject: Subject<{ roomId: string, password: string }> = new Subject();
   private join$ = this.joinSubject
     .pipe(
       switchMap(({ roomId, password }) => this.connectSignaling().then(() => ({ roomId, password }))),
-      switchMap(({ roomId, password }) => this.signalingService.join(roomId, password))
+      switchMap(({ roomId, password }) => this.signalingService.join(roomId, password)),
+      tap(() => this.store.dispatch(clearHost()))
     );
 
   public createConnections$ = this.signalingService.members$
@@ -164,9 +164,10 @@ export class RTCService implements OnDestroy {
     };
     channel.onmessage = (e) => {
       this.zone.run(() => {
-        // TODO: Trigger NGRX action
-        console.log("message", peer, e.data);
-        this.messageSubject.next({ from: peer, content: e.data });
+        const action = JSON.parse(e.data);
+        console.log("message", peer, action);
+        action.stopPropagation = true;
+        this.store.dispatch(action);
       });
     }
 
