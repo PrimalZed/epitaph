@@ -1,15 +1,17 @@
 import { Injectable, NgZone } from "@angular/core";
+import { Store, select } from "@ngrx/store";
 import { Subject, Subscription, merge } from "rxjs";
-import { filter, mergeMap, shareReplay, switchMap } from "rxjs/operators";
+import { filter, first, map, mergeMap, shareReplay, switchMap, tap } from "rxjs/operators";
+import { RTCState } from "rtc/store/rtc-state";
 import { RTCConnectionService } from "./rtc-connection.service";
 import { RTCSignalingService, SessionSignalingMessage, IceSignalingMessage } from "./rtc-signaling.service";
 import { RTCRoomsService } from "./rtc-rooms.service";
+import { upsertChannel, removeChannel } from "rtc/store/channels/channels.actions";
+import { selectAllChannels } from "rtc/store/channels/channels.selectors";
+import { setRemoteDescription, addIceCandidate, upsertConnection, removeConnection } from "rtc/store/connections/connections.actions";
 
 @Injectable()
 export class RTCService {
-  private connections: { [peer: string]: RTCPeerConnection } = {};
-  private channels: { [peer: string]: RTCDataChannel } = {};
-
   public rooms$ = this.roomsService.list();
 
   private messageSubject: Subject<{ from: string, content: any }> = new Subject();
@@ -62,13 +64,26 @@ export class RTCService {
   private processAnswer$ = this.signalingService.message$
     .pipe(
       filter((signalMessage) => signalMessage.type === "answer"),
-      mergeMap((signalMessage: SessionSignalingMessage) => this.connections[signalMessage.from].setRemoteDescription(signalMessage.content))
+      tap((signalMessage: SessionSignalingMessage) => this.store.dispatch(setRemoteDescription({ peer: signalMessage.from, description: signalMessage.content })))
     );
 
   private processIceCandidate$ = this.signalingService.message$
     .pipe(
       filter((signalMessage) => signalMessage.type === "icecandidate"),
-      mergeMap((signalMessage: IceSignalingMessage) => this.connections[signalMessage.from].addIceCandidate(signalMessage.content))
+      tap((signalMessage: IceSignalingMessage) => this.store.dispatch(addIceCandidate({ peer: signalMessage.from, candidate: signalMessage.content })))
+    );
+
+  private sendSubject: Subject<any> = new Subject();
+  private sendMessage$ = this.sendSubject
+    .pipe(
+      mergeMap((message) => this.store
+        .pipe(
+          select(selectAllChannels),
+          first(),
+          map((channels) => channels.filter((channel) => channel.readyState === "open")),
+          tap((channels) => channels.forEach((channel) => channel.send(message)))
+        )
+      )
     );
 
   private subscription: Subscription = merge(
@@ -77,7 +92,8 @@ export class RTCService {
       this.createConnections$,
       this.processOffer$,
       this.processAnswer$,
-      this.processIceCandidate$
+      this.processIceCandidate$,
+      this.sendMessage$
     )
     .subscribe();
 
@@ -85,6 +101,7 @@ export class RTCService {
     private roomsService: RTCRoomsService,
     private signalingService: RTCSignalingService,
     private connectionService: RTCConnectionService,
+    private store: Store<RTCState>,
     private zone: NgZone
   ) { }
 
@@ -124,70 +141,38 @@ export class RTCService {
 
   private createConnection(peer: string) {
     const connection = this.connectionService.create();
+    const _that = this;
     connection.onicecandidate = e => this.signalIceCandidate(e.candidate, peer);
-    connection.onconnectionstatechange = e => this.cleanConnections();
+    connection.onconnectionstatechange = function(e) {
+      if (["closed", "disconnected", "failed"].includes(this.connectionState)) {
+        _that.store.dispatch(removeConnection({ peer }))
+      }
+    };
 
-    if (this.connections[peer]) {
-      this.connections[peer].close();
-    }
-    this.connections[peer] = connection;
+    this.store.dispatch(upsertConnection({ peer, connection }));
 
     return connection;
   }
 
   private initChannel(channel: RTCDataChannel, peer: string) {
-    channel.onopen = (ev) => {
+    channel.onopen = (e) => {
       console.log("data channel connect", peer);
     };
-    channel.onclose = (ev) => {
+    channel.onclose = (e) => {
       console.log("data channel disconnect", peer);
-      this.cleanChannels();
+      this.store.dispatch(removeChannel({ peer }));
     };
-    channel.onmessage = (ev) => {
+    channel.onmessage = (e) => {
       this.zone.run(() => {
-        this.messageSubject.next({ from: peer, content: ev.data });
+        this.messageSubject.next({ from: peer, content: e.data });
       });
     }
 
-    if (this.channels[peer]) {
-      this.channels[peer].close();
-    }
-    this.channels[peer] = channel;
+    this.store.dispatch(upsertChannel({ peer, channel }));
   }
 
   public send(message: string) {
-    const openChannels = Object.values(this.channels)
-      .filter((channel) => channel.readyState === "open");
-    for (let channel of openChannels) {
-      channel.send(message);
-    }
-  }
-
-  private cleanConnections() {
-    const closedConnections = Object.entries(this.connections)
-      .filter(([peer, connection]) => ["closed", "disconnected", "failed"].includes(connection.connectionState));
-    for (let [peer, connection] of closedConnections) {
-      const channel = this.channels[peer];
-      if (channel) {
-        channel.close();
-      }
-      connection.close();
-      delete this.connections[peer];
-    }
-    
-    const orphanedChannels = Object.entries(this.channels)
-      .filter(([peer, channel]) => !Object.keys(this.connections).includes(peer));
-    for (let [peer, channel] of orphanedChannels) {
-      channel.close();
-    }
-  }
-
-  private cleanChannels() {
-    const closedChannels = Object.entries(this.channels)
-      .filter(([peer, channel]) => channel.readyState === "closed");
-    for (let [peer, channel] of closedChannels) {
-      delete this.channels[peer];
-    }
+    this.sendSubject.next(message);
   }
 
   public destroy() {
