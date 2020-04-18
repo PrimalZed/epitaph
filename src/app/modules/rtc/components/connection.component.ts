@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { mapTo } from "rxjs/operators";
-import { RTCService } from "services/rtc.service";
+import { RTCService } from "rtc/services/rtc.service";
 
 @Component({
   selector: "connection",

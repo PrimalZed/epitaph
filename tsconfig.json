@@ -7,6 +7,7 @@
       "components/*": ["app/components/*"],
       "models/*": ["app/models/*"],
       "pipes/*": ["app/pipes/*"],
+      "rtc/*": ["app/modules/rtc/*"],
       "services/*": ["app/services/*"],
       "store/*": ["app/store/*"]
     },

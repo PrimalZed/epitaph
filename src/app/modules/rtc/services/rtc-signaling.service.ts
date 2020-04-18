@@ -17,9 +17,7 @@ export interface SessionSignalingMessage {
 
 export type SignalingMessage = IceSignalingMessage | SessionSignalingMessage;
 
-@Injectable({
-  providedIn: "root"
-})
+@Injectable()
 export class RTCSignalingService implements OnDestroy {
   private membersSubject: Subject<string[]> = new Subject();
   public members$ = this.membersSubject.asObservable();

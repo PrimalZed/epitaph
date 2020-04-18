@@ -16,7 +16,6 @@ import { TableComponent } from "components/common/table.component";
 import { AddConditionComponent } from "components/conditions/add-condition.component";
 import { ConditionCardComponent } from "components/conditions/condition-card.component";
 import { ConditionsComponent } from "components/conditions/conditions.component";
-import { ConnectionComponent } from "components/connection/connection.component";
 import { ConditionPickerComponent } from "components/controls/condition-picker.component";
 import { ConditionPickerModalComponent } from "components/controls/condition-picker.modal.component";
 import { EnhancementPickerModalComponent } from "components/controls/enhancement-picker.modal.component";
@@ -54,6 +53,8 @@ import { hauntsReducer } from "store/haunts/haunts.reducers";
 import { keysReducer } from "store/keys/keys.reducers";
 import { systemReducer } from "store/system/system.reducers";
 
+import { RTCModule } from "rtc/rtc.module";
+
 import { AppComponent } from "./app.component";
 import { MaterialModule } from "./material.module";
 
@@ -70,7 +71,7 @@ const appRoutes: Routes = [
   { path: "haunts", component: HauntsComponent, data: { activeNavigation: "haunts" } },
   { path: "keys", component: KeysComponent, data: { activeNavigation: "keys" } },
   { path: "about", component: AboutComponent },
-  { path: "connection", component: ConnectionComponent }
+  { path: "connection", loadChildren: () => import("rtc/rtc.module").then(m => m.RTCModule) }
 ];
 
 @NgModule({
@@ -82,7 +83,6 @@ const appRoutes: Routes = [
     AddConditionComponent,
     ConditionCardComponent,
     ConditionsComponent,
-    ConnectionComponent,
     ConditionPickerComponent,
     ConditionPickerModalComponent,
     DrawerComponent,
@@ -116,6 +116,7 @@ const appRoutes: Routes = [
     MaterialModule,
     NgbModalModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
+    RTCModule,
     ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production }),
     StoreModule.forRoot<AppState, Action>({
       conditionSpecs: conditionSpecsReducer,

@@ -5,9 +5,7 @@ import { RTCConnectionService } from "./rtc-connection.service";
 import { RTCSignalingService, SessionSignalingMessage, IceSignalingMessage } from "./rtc-signaling.service";
 import { RTCRoomsService } from "./rtc-rooms.service";
 
-@Injectable({
-  providedIn: "root"
-})
+@Injectable()
 export class RTCService {
   private connections: { [peer: string]: RTCPeerConnection } = {};
   private channels: { [peer: string]: RTCDataChannel } = {};
