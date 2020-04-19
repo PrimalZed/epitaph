@@ -3,6 +3,7 @@ import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
 import {
   faBars,
   faCheck,
+  faDoorOpen,
   faPlus,
   faKey,
   faSave,
@@ -21,6 +22,7 @@ export class IconsService {
     this.iconLibrary.addIcons(
       faBars,
       faCheck,
+      faDoorOpen,
       faPlus,
       faKey,
       faSave,

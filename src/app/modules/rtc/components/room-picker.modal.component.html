@@ -1,0 +1,7 @@
+<div class="list-group">
+  <div *ngIf="!(options$ | async)?.length">(No Rooms Found)</div>
+  <button *ngFor="let option of options$ | async" class="list-group-item list-group-item-action"
+    type="button" matRipple (click)="select(option)">
+    {{ option.value }}
+  </button>
+</div>

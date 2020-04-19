@@ -73,7 +73,7 @@ const appRoutes: Routes = [
   { path: "haunts", component: HauntsComponent, data: { activeNavigation: "haunts" } },
   { path: "keys", component: KeysComponent, data: { activeNavigation: "keys" } },
   { path: "about", component: AboutComponent },
-  { path: "connection", loadChildren: () => import("app/modules/rtc/rtc.module").then(m => m.RTCModule) }
+  { path: "p2p", loadChildren: () => import("app/modules/rtc/rtc.module").then(m => m.RTCModule) }
 ];
 
 @NgModule({

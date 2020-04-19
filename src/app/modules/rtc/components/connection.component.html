@@ -1,41 +1,55 @@
-<ng-container *ngIf="!(connected$ | async)">
-  <div>
-    <h2>Rooms</h2>
-    <div *ngIf="!(rtc.rooms$ | async)?.length">(No Rooms Found)</div>
-    <div *ngFor="let room of rtc.rooms$ | async">{{ room | json }}</div>
+<div *ngIf="!(connected$ | async)" class="d-flex flex-column flex-md-row">
+    <form #createForm="ngForm" class="flex-fill" (ngSubmit)="create(createForm.value.name, createForm.value.password)">
+      <fieldset  [disabled]="submitting">
+        <div class="card">
+          <div class="card-header">
+            <h3>Create Room</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Room Name</label>
+              <input class="form-control" type="text" name="name" ngModel required />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input class="form-control" type="password" name="password" ngModel required />
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="mat-ripple btn text-primary" [disabled]="!createForm.valid">Create</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <form #joinForm="ngForm" class="flex-fill" (ngSubmit)="join(joinForm.value.room.key, joinForm.value.password)">
+      <fieldset [disabled]="submitting">
+        <div class="card">
+          <div class="card-header">
+            <h3>Join Room</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Room</label>
+              <room-picker name="room" [(ngModel)]="room" required></room-picker>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input class="form-control" type="password" name="password" ngModel required />
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="mat-ripple btn text-primary" [disabled]="!joinForm.valid">Join</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+</div>
+
+<div *ngIf="connected$ | async" class="card">
+  <div class="card-header">
+    <h1>Connected</h1>
   </div>
-
-  <form #createForm="ngForm" (ngSubmit)="rtc.create(createForm.value.name, createForm.value.password); submitting = true;">
-    <h2>Create Room</h2>
-    <fieldset [disabled]="submitting">
-      <div>
-        <label>Room Name</label>
-        <input type="text" name="name" ngModel required />
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="password" name="password" ngModel required />
-      </div>
-      <button [disabled]="!createForm.valid">Create</button>
-    </fieldset>
-  </form>
-
-  <form #joinForm="ngForm" (ngSubmit)="rtc.join(joinForm.value.id, joinForm.value.password); submitting = true;">
-    <h2>Join Room</h2>
-    <fieldset [disabled]="submitting">
-      <div>
-        <label>Room Id</label>
-        <input type="text" name="id" ngModel required />
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="password" name="password" ngModel required />
-      </div>
-      <button [disabled]="!joinForm.valid">Join</button>
-    </fieldset>
-  </form>
-</ng-container>
-
-<ng-container *ngIf="connected$ | async">
-  <h1>Connected</h1>
-</ng-container>
+  <div class="card-footer">
+    <button class="mat-ripple btn text-primary" (click)="disconnect()">Disconnect</button>
+  </div>
+</div>
