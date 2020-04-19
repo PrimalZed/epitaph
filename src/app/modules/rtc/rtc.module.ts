@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
@@ -12,7 +12,6 @@ import { RoomPickerModalComponent } from "./components/room-picker.modal.compone
 
 import { RTCService } from "rtc/services/rtc.service";
 import { RTCConnectionService } from "rtc/services/rtc-connection.service";
-import { RTCHostService } from "./services/rtc-host.service";
 import { RTCRoomsService } from "rtc/services/rtc-rooms.service";
 import { RTCSignalingService } from "rtc/services/rtc-signaling.service";
 
@@ -45,7 +44,6 @@ const rtcRoutes: Routes = [
   providers: [
     RTCService,
     RTCConnectionService,
-    RTCHostService,
     RTCRoomsService,
     RTCSignalingService
   ]

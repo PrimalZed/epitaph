@@ -9,7 +9,9 @@ import { selectAllChannelKeyValues } from "rtc/store/channels/channels.selectors
 import { selectAllConditionStates } from "store/conditions/conditions.selectors";
 import { loadShare } from "store/system/system.actions";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class RTCHostService implements OnDestroy {
   private hostPower$ = this.rtcStore
     .pipe(

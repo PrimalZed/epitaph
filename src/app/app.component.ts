@@ -5,7 +5,7 @@ import { Store, select } from "@ngrx/store";
 import { Subject, Subscription, combineLatest, merge, of } from "rxjs";
 import { filter, first, map, mapTo, startWith, switchMap, tap } from "rxjs/operators";
 import { SaveNameComponent } from "components/system/save-name.component";
-import { RTCHostService } from "rtc/services/rtc-host.service";
+import { RTCHostService } from "services/rtc-host.service";
 import { selectHost } from "rtc/store/host/host.selectors";
 import { SaveService } from "services/save.service";
 import { AppState } from "store/app-state";
