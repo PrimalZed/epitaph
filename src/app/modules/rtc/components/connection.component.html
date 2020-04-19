@@ -1,8 +1,10 @@
 <ng-container *ngIf="!(connected$ | async)">
   <div class="card">
     <div class="card-body">
-      <p>P2P brings the utility of Epitaph to everyone at your table by sharing your game state across devices in real time.</p>
-      <p>Only people with your password can join your room.</p>
+      <p>P2P shares the utility of Epitaph with everyone at your table.</p>
+      <p>The host's Chronicle state is shared with others who join the room. Anyone in the room can make updates to the Chronicle.</p>
+      <p>Only people with the password can join a room.</p>
+      <p>Before joining another person's room, you should save any pending changes to your own Chronicle.</p>
       <p>To host, enter a room name and password under <b>Create Room</b>, then click <b>Create</b>.</p>
       <p>To join, find the room created by your host under <b>Join Room</b> and enter the password, then click <b>Join</b>.</p>
     </div>
