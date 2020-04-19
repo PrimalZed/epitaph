@@ -18,6 +18,8 @@ import { selectHost } from "rtc/store/host/host.selectors";
 export class ConnectionComponent {
   public connected$ = merge(
       this.rtc.open$.pipe(mapTo(true)),
+      this.rtc.createFailure$.pipe(mapTo(false)),
+      this.rtc.joinFailure$.pipe(mapTo(false)),
       this.rtc.leave$.pipe(mapTo(false)),
       this.rtc.close$.pipe(mapTo(false))
     )

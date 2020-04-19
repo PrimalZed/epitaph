@@ -62,10 +62,7 @@ export class RTCSignalingService implements OnDestroy {
     return this.connection.invoke("create", name, password)
       .catch((error) => {
         console.error(error.message);
-        return this.connection.stop()
-          .then(() => {
-            throw error.message.split("HubException: ").pop();
-          });
+        throw error.message.split("HubException: ").pop();
       });
   }
 
@@ -73,10 +70,7 @@ export class RTCSignalingService implements OnDestroy {
     return this.connection.invoke("join", roomId, password)
       .catch((error) => {
         console.error(error.message);
-        return this.connection.stop()
-          .then(() => {
-            throw error.message.split("HubException: ").pop();
-          });
+        throw error.message.split("HubException: ").pop();
       });
   }
 

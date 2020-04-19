@@ -22,8 +22,24 @@ export class RTCService implements OnDestroy {
   private create$ = this.createSubject
     .pipe(
       switchMap(({ name, password }) => this.connectSignaling().then(() => ({ name, password }))),
-      switchMap(({ name, password }) => this.signalingService.create(name, password)),
+      switchMap(({ name, password }) => this.signalingService.create(name, password).then(() => null).catch((error) => error)),
+      tap((errorMessage) => {
+        if (errorMessage) {
+          window.alert(`Could not create a room: ${errorMessage}`);
+        }
+      }),
+      shareReplay(1)
+    );
+
+  private createSuccess$ = this.create$
+    .pipe(
+      filter((errorMessage) => !errorMessage),
       tap(() => this.store.dispatch(setHost()))
+    );
+
+  public createFailure$ = this.create$
+    .pipe(
+      filter((errorMessage) => errorMessage)
     );
 
   private joinSubject: Subject<{ roomId: string, password: string }> = new Subject();
@@ -125,7 +141,7 @@ export class RTCService implements OnDestroy {
     );
 
   private subscription: Subscription = merge(
-      this.create$,
+      this.createSuccess$,
       this.joinSuccess$,
       this.open$,
       this.processOffer$,
