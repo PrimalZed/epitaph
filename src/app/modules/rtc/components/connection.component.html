@@ -1,4 +1,12 @@
-<div *ngIf="!(connected$ | async)" class="d-flex flex-column flex-md-row">
+<ng-container *ngIf="!(connected$ | async)">
+  <div class="card">
+    <div class="card-body">
+      <p>P2P allows you to share the game state with others in your game, or connect to a game hosted by someone else.</p>
+      <p>To host, enter a room name and password under <b>Create Room</b>, then click <b>Create</b>.</p>
+      <p>To join, find the room created by your host under <b>Join Room</b> and enter the password, then click <b>Join</b>.</p>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-md-row">
     <form #createForm="ngForm" class="flex-fill" (ngSubmit)="create(createForm.value.name, createForm.value.password)">
       <fieldset  [disabled]="submitting">
         <div class="card">
@@ -43,7 +51,8 @@
         </div>
       </fieldset>
     </form>
-</div>
+  </div>
+</ng-container>
 
 <div *ngIf="connected$ | async" class="card">
   <div class="card-header">
