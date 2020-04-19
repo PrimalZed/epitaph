@@ -16,7 +16,11 @@ import { selectHost } from "rtc/store/host/host.selectors";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConnectionComponent {
-  public connected$ = merge(this.rtc.open$.pipe(mapTo(true)), this.rtc.close$.pipe(mapTo(false)))
+  public connected$ = merge(
+      this.rtc.open$.pipe(mapTo(true)),
+      this.rtc.leave$.pipe(mapTo(false)),
+      this.rtc.close$.pipe(mapTo(false))
+    )
     .pipe(
       tap(() => {
         this.submitting = false;
@@ -45,6 +49,6 @@ export class ConnectionComponent {
   }
 
   disconnect() {
-    window.alert("Sorry, this button doesn't actually do anything yet. Just refresh the browser to disconnect.");
+    this.rtc.leave();
   }
 }

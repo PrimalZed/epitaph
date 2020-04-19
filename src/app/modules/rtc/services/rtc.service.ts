@@ -90,10 +90,23 @@ export class RTCService implements OnDestroy {
       tap((signalMessage: IceSignalingMessage) => this.store.dispatch(addIceCandidate({ peer: signalMessage.from, candidate: signalMessage.content })))
     );
 
+  private closeAllConnections$ = this.store
+    .pipe(
+      select(selectAllConnections),
+      first(),
+      tap((connections) => connections.forEach((connection) => connection.close()))
+    );
+
+  private leaveSubject: Subject<void> = new Subject();
+  public leave$ = this.leaveSubject
+    .pipe(
+      mergeMap(() => this.signalingService.leave()),
+      mergeMap(() => this.closeAllConnections$)
+    );
+
   public close$ = this.signalingService.close$
     .pipe(
-      mergeMap(() => this.store.pipe(select(selectAllConnections), first())),
-      tap((connections) => connections.forEach((connection) => connection.close())),
+      mergeMap(() => this.closeAllConnections$),
       tap(() => window.alert("P2P connection(s) closed")),
       shareReplay(1)
     );
@@ -118,6 +131,7 @@ export class RTCService implements OnDestroy {
       this.processOffer$,
       this.processAnswer$,
       this.processIceCandidate$,
+      this.leave$,
       this.close$,
       this.sendMessage$
     )
@@ -149,7 +163,7 @@ export class RTCService implements OnDestroy {
   private fromOffer(offer: RTCSessionDescriptionInit, from: string): Promise<void> {
     const connection = this.createConnection(from);
     
-    connection.ondatachannel = (event) => this.initChannel(event.channel, from);
+    connection.ondatachannel = (event) => this.zone.run(() => this.initChannel(event.channel, from));
 
     connection.setRemoteDescription(offer);
     return connection.createAnswer()
@@ -170,9 +184,11 @@ export class RTCService implements OnDestroy {
     const _that = this;
     connection.onicecandidate = e => this.signalIceCandidate(e.candidate, peer);
     connection.onconnectionstatechange = function(e) {
-      if (["closed", "disconnected", "failed"].includes(this.connectionState)) {
-        _that.store.dispatch(removeConnection({ peer }))
-      }
+      _that.zone.run(() => {
+        if (["closed", "disconnected", "failed"].includes(this.connectionState)) {
+          _that.store.dispatch(removeConnection({ peer }))
+        }
+      });
     };
 
     this.store.dispatch(upsertConnection({ peer, connection }));
@@ -185,8 +201,10 @@ export class RTCService implements OnDestroy {
       console.log("data channel connect", peer);
     };
     channel.onclose = (e) => {
-      console.log("data channel disconnect", peer);
-      this.store.dispatch(removeChannel({ peer }));
+      this.zone.run(() => {
+        console.log("data channel disconnect", peer);
+        this.store.dispatch(removeChannel({ peer }));
+      });
     };
     channel.onmessage = (e) => {
       this.zone.run(() => {
@@ -202,6 +220,10 @@ export class RTCService implements OnDestroy {
 
   public send(message: string) {
     this.sendSubject.next(message);
+  }
+
+  public leave() {
+    this.leaveSubject.next();
   }
 
   public ngOnDestroy() {

@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from "@angular/core";
+import { Injectable, OnDestroy, NgZone } from "@angular/core";
 import { HubConnectionBuilder, HubConnection } from "@microsoft/signalr";
 import { Subject } from "rxjs";
 import { environment } from "environments/environment";
@@ -30,21 +30,29 @@ export class RTCSignalingService implements OnDestroy {
 
   private connection: HubConnection;
 
+  constructor(private zone: NgZone) { }
+
   public connect(): Promise<void> {
     this.connection = new HubConnectionBuilder()
       .withUrl(`${environment.serverHost}/hub`)
       .build();
 
     this.connection.on("members", (members) => {
-      this.membersSubject.next(members);
+      this.zone.run(() => {
+        this.membersSubject.next(members);
+      });
     });
 
     this.connection.on("relay", (type, from, content) => {
-      this.messageSubject.next({ type, from, content });
+      this.zone.run(() => {
+        this.messageSubject.next({ type, from, content });
+      });
     });
 
     this.connection.onclose((error) => {
-      this.closeSubject.next(error);
+      this.zone.run(() => {
+        this.closeSubject.next(error);
+      });
     });
 
     return this.connection.start();
@@ -82,6 +90,10 @@ export class RTCSignalingService implements OnDestroy {
 
   public sendIceCandidate(candidate: RTCIceCandidateInit, to: string): Promise<void> {
     return this.connection.send("relay", to, "icecandidate", candidate);
+  }
+
+  public leave(): Promise<void> {
+    return this.connection.send("leave");
   }
 
   ngOnDestroy() {
