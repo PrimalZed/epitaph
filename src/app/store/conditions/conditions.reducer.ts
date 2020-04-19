@@ -8,7 +8,7 @@ import {
 } from "./conditions.actions";
 import { conditionsAdapter } from "./conditions.adapter";
 import { ConditionsState } from "./conditions-state";
-import { loadSave, newSave } from "store/system/system.actions";
+import { loadSave, newSave, loadShare } from "store/system/system.actions";
 import { ChargedConditionState } from "./condition-state";
 
 export const initialConditionsState: ConditionsState = conditionsAdapter.getInitialState({
@@ -23,6 +23,10 @@ export const conditionsReducer = createReducer<ConditionsState, ConditionsAction
     counter: (saveState.conditions ?? []).reduce((max, condition) => Math.max(max, condition.id + 1), 0)
   })),
   on(newSave, (state) => initialConditionsState),
+  on(loadShare, (state, { conditionStates }) => ({ 
+    ...conditionsAdapter.addAll(conditionStates ?? [], state),
+    counter: (conditionStates ?? []).reduce((max, condition) => Math.max(max, condition.id + 1), 0)
+  })),
   on(addCondition, (state, { command }) => 
     conditionsAdapter.addOne({ id: state.counter, ...command, enhancementKeys: [] }, { ...state, counter: state.counter + 1 })),
   on(decrementConditionCharge, (state, { id }) => {

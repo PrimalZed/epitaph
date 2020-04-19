@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { CreateSimpleConditionCommand } from "./create-condition-command";
-import { loadSave, newSave } from "store/system/system.actions";
+import { loadSave, newSave, loadShare } from "store/system/system.actions";
 
 export const addCondition = createAction(
   "[Conditions] Add Condition",
@@ -25,6 +25,7 @@ export const removeCondition = createAction(
 export type ConditionsActions = 
   | typeof loadSave
   | typeof newSave
+  | typeof loadShare
   | typeof addCondition
   | typeof decrementConditionCharge
   | typeof addConditionEffect

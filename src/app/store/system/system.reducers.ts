@@ -6,7 +6,7 @@ import {
   removeCondition
 } from "store/conditions/conditions.actions";
 import { SystemState } from "./system-state";
-import { SystemActions, newSave, setName, deleteSaveSuccess, saveSuccess, loadSave } from "./system.actions";
+import { SystemActions, newSave, setName, deleteSaveSuccess, saveSuccess, loadSave, loadShare } from "./system.actions";
 
 export const initialSystemState: SystemState = {
   saveId: null,
@@ -25,4 +25,5 @@ export const systemReducer = createReducer<SystemState, SystemActions>(
   on(setName, (state, { name }) => ({ ...state, saveName: name })),
   on(saveSuccess, (state, { id }) => ({ ...state, saveId: id, dirty: false })),
   on(loadSave, (state, { saveState }) => ({ ...state, saveId: saveState.id, saveName: saveState.name, dirty: false })),
+  on(loadShare, (state, { conditionStates }) => (initialSystemState))
 );

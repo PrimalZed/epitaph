@@ -5,6 +5,7 @@ import { Store, select } from "@ngrx/store";
 import { Subject, Subscription, combineLatest, merge, of } from "rxjs";
 import { filter, first, map, mapTo, startWith, switchMap, tap } from "rxjs/operators";
 import { SaveNameComponent } from "components/system/save-name.component";
+import { RTCHostService } from "rtc/services/rtc-host.service";
 import { selectHost } from "rtc/store/host/host.selectors";
 import { SaveService } from "services/save.service";
 import { AppState } from "store/app-state";
@@ -68,12 +69,12 @@ export class AppComponent implements OnDestroy {
     );
 
   private closeDrawer$ = this.router.events
-  .pipe(
-    filter(e => e instanceof NavigationEnd),
-    tap(() => {
-      this.showDrawer = false;
-    })
-  );
+    .pipe(
+      filter(e => e instanceof NavigationEnd),
+      tap(() => {
+        this.showDrawer = false;
+      })
+    );
 
   private subscription: Subscription = merge(this.save$, this.closeDrawer$).subscribe();
 
@@ -82,7 +83,9 @@ export class AppComponent implements OnDestroy {
     private store: Store<AppState>,
     private modalService: NgbModal,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    // injecting to initialize the subscription
+    private hostService: RTCHostService
   ) { }
 
   @HostListener("window:beforeunload")

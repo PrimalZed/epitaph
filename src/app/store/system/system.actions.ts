@@ -6,6 +6,7 @@ import {
   removeCondition
 } from "store/conditions/conditions.actions";
 import { SaveState } from "./save-state";
+import { ConditionState } from "store/conditions/condition-state";
 
 export const newSave = createAction(
   "[System] New Save"
@@ -30,6 +31,11 @@ export const loadSave = createAction(
   props<{ saveState: SaveState }>()
 );
 
+export const loadShare = createAction(
+  "[System] Load Share",
+  props<{ conditionStates: ConditionState[] }>()
+);
+
 export type SystemActions = 
   | typeof addCondition
   | typeof decrementConditionCharge
@@ -39,4 +45,5 @@ export type SystemActions =
   | typeof setName
   | typeof deleteSaveSuccess
   | typeof saveSuccess
+  | typeof loadSave
   | typeof loadSave;
