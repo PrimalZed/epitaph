@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { Store, select } from "@ngrx/store";
-import { mapTo } from "rxjs/operators";
+import { merge } from "rxjs";
+import { mapTo, tap } from "rxjs/operators";
 import { RTCService } from "rtc/services/rtc.service";
 import { RTCState } from "rtc/store/rtc-state";
 import { selectTotalChannels } from "rtc/store/channels/channels.selectors";
@@ -15,7 +16,13 @@ import { selectHost } from "rtc/store/host/host.selectors";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConnectionComponent {
-  public connected$ = this.rtc.createConnections$.pipe(mapTo(true));
+  public connected$ = merge(this.rtc.open$.pipe(mapTo(true)), this.rtc.close$.pipe(mapTo(false)))
+    .pipe(
+      tap(() => {
+        this.submitting = false;
+      })
+    );
+
   public submitting: boolean;
   public room;
 
@@ -33,7 +40,6 @@ export class ConnectionComponent {
   }
 
   join(roomId: string, password: string) {
-    console.log(roomId, password);
     this.rtc.join(roomId, password);
     this.submitting = true;
   }

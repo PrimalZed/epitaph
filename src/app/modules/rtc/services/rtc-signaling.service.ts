@@ -25,6 +25,9 @@ export class RTCSignalingService implements OnDestroy {
   private messageSubject: Subject<SignalingMessage> = new Subject();
   public message$ = this.messageSubject.asObservable();
 
+  private closeSubject: Subject<Error> = new Subject();
+  public close$ = this.closeSubject.asObservable();
+
   private connection: HubConnection;
 
   public connect(): Promise<void> {
@@ -40,15 +43,33 @@ export class RTCSignalingService implements OnDestroy {
       this.messageSubject.next({ type, from, content });
     });
 
+    this.connection.onclose((error) => {
+      this.closeSubject.next(error);
+    });
+
     return this.connection.start();
   }
 
   public create(name: string, password: string): Promise<void> {
-    return this.connection.send("create", name, password);
+    return this.connection.invoke("create", name, password)
+      .catch((error) => {
+        console.error(error.message);
+        return this.connection.stop()
+          .then(() => {
+            throw error.message.split("HubException: ").pop();
+          });
+      });
   }
 
   public join(roomId: string, password: string): Promise<void> {
-    return this.connection.send("join", roomId, password);
+    return this.connection.invoke("join", roomId, password)
+      .catch((error) => {
+        console.error(error.message);
+        return this.connection.stop()
+          .then(() => {
+            throw error.message.split("HubException: ").pop();
+          });
+      });
   }
 
   public sendOffer(offer: RTCSessionDescriptionInit, to: string): Promise<void> {

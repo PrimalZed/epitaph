@@ -9,6 +9,7 @@ import { RTCRoomsService } from "./rtc-rooms.service";
 import { upsertChannel, removeChannel } from "rtc/store/channels/channels.actions";
 import { selectAllChannels } from "rtc/store/channels/channels.selectors";
 import { setRemoteDescription, addIceCandidate, upsertConnection, removeConnection } from "rtc/store/connections/connections.actions";
+import { selectAllConnections } from "rtc/store/connections/connections.selectors";
 import { setHost, clearHost } from "rtc/store/host/host.actions";
 
 @Injectable()
@@ -29,11 +30,27 @@ export class RTCService implements OnDestroy {
   private join$ = this.joinSubject
     .pipe(
       switchMap(({ roomId, password }) => this.connectSignaling().then(() => ({ roomId, password }))),
-      switchMap(({ roomId, password }) => this.signalingService.join(roomId, password)),
+      switchMap(({ roomId, password }) => this.signalingService.join(roomId, password).then(() => null).catch((error) => error)),
+      tap((errorMessage) => {
+        if (errorMessage) {
+          window.alert(`Could not join the room: ${errorMessage}`);
+        }
+      }),
+      shareReplay(1)
+    );
+
+  private joinSuccess$ = this.join$
+    .pipe(
+      filter((errorMessage) => !errorMessage),
       tap(() => this.store.dispatch(clearHost()))
     );
 
-  public createConnections$ = this.signalingService.members$
+  public joinFailure$ = this.join$
+    .pipe(
+      filter((errorMessage) => errorMessage)
+    );
+
+  public open$ = this.signalingService.members$
     .pipe(
       switchMap((peers) => {
         const offerPromises = peers
@@ -73,6 +90,14 @@ export class RTCService implements OnDestroy {
       tap((signalMessage: IceSignalingMessage) => this.store.dispatch(addIceCandidate({ peer: signalMessage.from, candidate: signalMessage.content })))
     );
 
+  public close$ = this.signalingService.close$
+    .pipe(
+      mergeMap(() => this.store.pipe(select(selectAllConnections), first())),
+      tap((connections) => connections.forEach((connection) => connection.close())),
+      tap(() => window.alert("P2P connection(s) closed")),
+      shareReplay(1)
+    );
+
   private sendSubject: Subject<any> = new Subject();
   private sendMessage$ = this.sendSubject
     .pipe(
@@ -88,11 +113,12 @@ export class RTCService implements OnDestroy {
 
   private subscription: Subscription = merge(
       this.create$,
-      this.join$,
-      this.createConnections$,
+      this.joinSuccess$,
+      this.open$,
       this.processOffer$,
       this.processAnswer$,
       this.processIceCandidate$,
+      this.close$,
       this.sendMessage$
     )
     .subscribe();
