@@ -1,6 +1,10 @@
 import { Component, ChangeDetectionStrategy } from "@angular/core";
+import { Store, select } from "@ngrx/store";
 import { mapTo } from "rxjs/operators";
 import { RTCService } from "rtc/services/rtc.service";
+import { RTCState } from "rtc/store/rtc-state";
+import { selectTotalChannels } from "rtc/store/channels/channels.selectors";
+import { selectHost } from "rtc/store/host/host.selectors";
 
 @Component({
   selector: "connection",
@@ -15,8 +19,12 @@ export class ConnectionComponent {
   public submitting: boolean;
   public room;
 
+  public peerCount$ = this.store.pipe(select(selectTotalChannels));
+  public host$ = this.store.pipe(select(selectHost));
+
   constructor(
-    public rtc: RTCService
+    public rtc: RTCService,
+    public store: Store<RTCState>
   ) { }
 
   create(name: string, password: string) {

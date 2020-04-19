@@ -59,7 +59,13 @@
   <div class="card-header">
     <h1>Connected</h1>
   </div>
+  <div class="card-body">
+    <p *ngIf="host$ | async">You are the host.</p>
+    <p *ngIf="!(host$ | async)">You are <b>not</b> the host.</p>
+    <p>You are connected with {{ peerCount$ | async }} others.</p>
+  </div>
   <div class="card-footer">
+    <a class="btn text-primary" [routerLink]="['/conditions']">Return to Conditions</a>
     <button class="mat-ripple btn text-primary" (click)="disconnect()">Disconnect</button>
   </div>
 </div>
