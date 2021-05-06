@@ -8,5 +8,5 @@ export const initialHauntsState: EntityState<Haunt> = hauntsAdapter.getInitialSt
 
 export const hauntsReducer = createReducer<EntityState<Haunt>, HauntsActions>(
   initialHauntsState,
-  on(loadHaunts, (state, { haunts }) => hauntsAdapter.addAll(haunts, state))
+  on(loadHaunts, (state, { haunts }) => hauntsAdapter.setAll(haunts, state))
 );

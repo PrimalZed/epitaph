@@ -11,5 +11,5 @@ export const initialConditionSpecsState: EntityState<ConditionSpec> = conditionS
 
 export const conditionSpecsReducer = createReducer<EntityState<ConditionSpec>, ConditionSpecsActions>(
   initialConditionSpecsState,
-  on(loadConditionSpecs, (state, { conditions }) => conditionSpecsAdapter.addAll(conditions, state))
+  on(loadConditionSpecs, (state, { conditions }) => conditionSpecsAdapter.setAll(conditions, state))
 );

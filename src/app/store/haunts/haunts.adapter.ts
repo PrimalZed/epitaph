@@ -3,5 +3,5 @@ import { Haunt } from "./haunt";
 
 export const hauntsAdapter: EntityAdapter<Haunt> = createEntityAdapter<Haunt>({
   selectId: (haunt: Haunt) => haunt.key,
-  sortComparer: (haunt: Haunt) => haunt.name
+  sortComparer: (a: Haunt, b: Haunt) => a.name.localeCompare(b.name)
 });

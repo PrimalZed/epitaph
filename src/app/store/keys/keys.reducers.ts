@@ -8,5 +8,5 @@ export const initialKeysState: EntityState<Key> = keysAdapter.getInitialState({ 
 
 export const keysReducer = createReducer<EntityState<Key>, KeysActions>(
   initialKeysState,
-  on(loadKeys, (state, { keys }) => keysAdapter.addAll(keys, state))
+  on(loadKeys, (state, { keys }) => keysAdapter.setAll(keys, state))
 );

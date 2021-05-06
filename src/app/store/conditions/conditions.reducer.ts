@@ -19,12 +19,12 @@ export const initialConditionsState: ConditionsState = conditionsAdapter.getInit
 export const conditionsReducer = createReducer<ConditionsState, ConditionsActions>(
   initialConditionsState,
   on(loadSave, (state, { saveState }) => ({ 
-    ...conditionsAdapter.addAll(saveState.conditions ?? [], state),
+    ...conditionsAdapter.setAll(saveState.conditions ?? [], state),
     counter: (saveState.conditions ?? []).reduce((max, condition) => Math.max(max, condition.id + 1), 0)
   })),
   on(newSave, (state) => initialConditionsState),
   on(loadShare, (state, { conditionStates }) => ({ 
-    ...conditionsAdapter.addAll(conditionStates ?? [], state),
+    ...conditionsAdapter.setAll(conditionStates ?? [], state),
     counter: (conditionStates ?? []).reduce((max, condition) => Math.max(max, condition.id + 1), 0)
   })),
   on(addCondition, (state, { command }) => 
